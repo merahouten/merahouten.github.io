@@ -1,0 +1,2854 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mehdi Erahouten — Incident Manager @ Société Générale Assurances | Data & AI Engineering Track</title>
+  <meta name="description" content="Portfolio of Mehdi Erahouten — Incident Manager at Société Générale Assurances and IT Engineering student at ISEP Paris, building expertise across software, systems and production environments while developing a specialization in Data Engineering and Applied AI." />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Plus Jakarta Sans, Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            obsidian: '#07070c',
+            surface: '#0d0e17',
+            surfaceElevated: '#131524',
+            tileBg: '#0e0e18',
+          },
+          animation: {
+            'marquee-left': 'marqueeLeft 45s linear infinite',
+            'marquee-right': 'marqueeRight 48s linear infinite',
+            'cursor-blink': 'cursorBlink 1s step-end infinite',
+          },
+          keyframes: {
+            marqueeLeft: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' },
+            },
+            marqueeRight: {
+              '0%': { transform: 'translateX(-50%)' },
+              '100%': { transform: 'translateX(0%)' },
+            },
+            cursorBlink: {
+              '0%, 100%': { opacity: '1' },
+              '50%': { opacity: '0' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg-primary: #07070c;
+      --bg-card: rgba(14, 15, 25, 0.78);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: #e2e8f0;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Subtle architectural grid and ambient radial illumination matching screenshot */
+    .bg-grid-mesh {
+      background-size: 48px 48px;
+      background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+    }
+
+    .ambient-spotlight {
+      background:
+        radial-gradient(circle at 72% 22%, rgba(168, 85, 247, 0.14) 0%, transparent 42%),
+        radial-gradient(circle at 20% 14%, rgba(56, 189, 248, 0.08) 0%, transparent 38%),
+        radial-gradient(circle at 50% 60%, rgba(99, 102, 241, 0.06) 0%, transparent 50%);
+    }
+
+    /* Name gradient matching reference screenshot (purple -> indigo -> cyan/teal) */
+    .hero-name-gradient {
+      background: linear-gradient(90deg, #c084fc 0%, #818cf8 48%, #2dd4bf 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Glowing purple CTA button matching reference screenshot */
+    .btn-purple-glow {
+      background: linear-gradient(135deg, #a855f7 0%, #c084fc 100%);
+      box-shadow: 0 0 26px rgba(168, 85, 247, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn-purple-glow:hover {
+      background: linear-gradient(135deg, #9333ea 0%, #a855f7 100%);
+      box-shadow: 0 0 34px rgba(168, 85, 247, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+      transform: translateY(-2px);
+    }
+
+    /* Studio Portrait Card Backdrop */
+    .studio-portrait-frame {
+      background: radial-gradient(circle at 50% 34%, #6b7280 0%, #4b5563 42%, #374151 75%, #1f2937 100%);
+      box-shadow: 0 28px 60px -15px rgba(0, 0, 0, 0.85),
+                  0 0 50px -12px rgba(168, 85, 247, 0.22),
+                  inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
+    }
+
+    /* Floating badges on the portrait card */
+    .floating-glass-badge {
+      background: rgba(13, 14, 23, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      box-shadow: 0 18px 36px -8px rgba(0, 0, 0, 0.75);
+    }
+
+    /* Glassmorphism surface cards */
+    .glass-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-subtle);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                  border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                  background-color 0.25s ease;
+    }
+
+    .glass-card:hover {
+      border-color: rgba(168, 85, 247, 0.32);
+      background: rgba(19, 21, 36, 0.88);
+      transform: translateY(-2px);
+      box-shadow: 0 18px 38px -14px rgba(0, 0, 0, 0.65),
+                  0 0 24px -8px rgba(168, 85, 247, 0.14);
+    }
+
+    /* Technologies & Tools Dark Icon Tiles (Matching image_99fd5d.png) */
+    .tech-tile {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      background: #0e0e18;
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06),
+                  0 10px 24px -6px rgba(0, 0, 0, 0.7);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .tech-item:hover .tech-tile {
+      border-color: rgba(192, 132, 252, 0.55);
+      transform: translateY(-4px) scale(1.04);
+      background: #151625;
+      box-shadow: 0 14px 28px -6px rgba(168, 85, 247, 0.24);
+    }
+
+    .tech-item:hover .tech-label {
+      color: #f8fafc;
+    }
+
+    /* Edge fade masks for the 2-row icon marquee */
+    .marquee-mask {
+      mask-image: linear-gradient(to right, transparent 0%, black 9%, black 91%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 9%, black 91%, transparent 100%);
+    }
+
+    .marquee-row:hover {
+      animation-play-state: paused;
+    }
+
+    /* Reveal on scroll transitions */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Skill maturity pill styles */
+    .skill-demonstrated {
+      background: rgba(16, 185, 129, 0.09);
+      border: 1px solid rgba(16, 185, 129, 0.28);
+      color: #d1fae5;
+      transition: all 0.2s ease;
+    }
+
+    .skill-demonstrated:hover {
+      background: rgba(16, 185, 129, 0.17);
+      border-color: rgba(16, 185, 129, 0.52);
+    }
+
+    .skill-learning {
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px dashed rgba(56, 189, 248, 0.42);
+      color: #e0f2fe;
+      transition: all 0.2s ease;
+    }
+
+    .skill-learning:hover {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: rgba(56, 189, 248, 0.68);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #07070c;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #a855f7;
+    }
+
+    /* Print-friendly CV rules */
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #cv-printable-area,
+      #cv-printable-area * {
+        visibility: visible;
+      }
+      #cv-printable-area {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background: #ffffff !important;
+        color: #0f172a !important;
+        padding: 24px !important;
+        box-shadow: none !important;
+      }
+      #cv-printable-area h2,
+      #cv-printable-area h3,
+      #cv-printable-area h4,
+      #cv-printable-area p,
+      #cv-printable-area span,
+      #cv-printable-area li {
+        color: #0f172a !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-obsidian text-slate-200 antialiased selection:bg-purple-500/30 selection:text-purple-200 relative">
+
+  <!-- Background Grid & Ambient Radial Glow -->
+  <div class="fixed inset-0 bg-grid-mesh pointer-events-none z-0"></div>
+  <div class="fixed inset-0 ambient-spotlight pointer-events-none z-0"></div>
+
+  <!-- Hidden file input for embedding unnamed__1_-removebg-preview.png into HTML -->
+  <input type="file" id="portrait-upload-input" accept="image/*" class="hidden" />
+
+  <!-- ======================== STICKY NAVIGATION BAR ======================== -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.06] bg-obsidian/80 backdrop-blur-xl transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+
+      <!-- Brand Logo: ME / portfolio -->
+      <a href="#home" class="flex items-center gap-1.5 group focus:outline-none">
+        <span class="font-mono font-bold text-base sm:text-lg tracking-tight text-purple-400 group-hover:text-purple-300 transition-colors">ME</span>
+        <span class="font-mono text-slate-600">/</span>
+        <span class="font-mono text-sm text-slate-300 group-hover:text-white transition-colors">portfolio</span>
+      </a>
+
+      <!-- Center Rounded Pill Navigation (Matches reference screenshot image_9a8b24.jpg) -->
+      <nav class="hidden md:flex items-center gap-1 p-1.5 rounded-full bg-white/[0.03] border border-white/[0.08]" aria-label="Primary Navigation">
+        <a href="#home" data-nav="home" data-i18n="nav_home" class="nav-pill px-4 py-1.5 rounded-full text-xs font-medium transition-all bg-white/[0.09] text-white border border-white/10 shadow-sm">Home</a>
+        <a href="#about" data-nav="about" data-i18n="nav_about" class="nav-pill px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-400 hover:text-white transition-all">About</a>
+        <a href="#experience" data-nav="experience" data-i18n="nav_exp" class="nav-pill px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-400 hover:text-white transition-all">Experience</a>
+        <a href="#projects" data-nav="projects" data-i18n="nav_projects" class="nav-pill px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-400 hover:text-white transition-all">Projects</a>
+        <a href="#skills" data-nav="skills" data-i18n="nav_skills" class="nav-pill px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-400 hover:text-white transition-all">Skills</a>
+        <a href="#direction" data-nav="direction" data-i18n="nav_direction" class="nav-pill px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-400 hover:text-white transition-all">Direction</a>
+        <a href="#contact" data-nav="contact" data-i18n="nav_contact" class="nav-pill px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-400 hover:text-white transition-all">Contact</a>
+      </nav>
+
+      <!-- Right Controls: EN | FR Language Switcher + Glowing Purple Resume Button + Mobile Menu Trigger -->
+      <div class="flex items-center gap-2.5">
+        <!-- Bilingual Switcher (EN | FR) -->
+        <div class="inline-flex items-center rounded-xl bg-white/[0.04] p-0.5 border border-white/10" role="group" aria-label="Language switcher">
+          <button id="lang-en" onclick="setLanguage('en')" class="px-2.5 py-1 rounded-lg text-xs font-mono font-semibold transition-all bg-purple-500/25 text-purple-200 border border-purple-400/30">
+            EN
+          </button>
+          <button id="lang-fr" onclick="setLanguage('fr')" class="px-2.5 py-1 rounded-lg text-xs font-mono font-semibold transition-all text-slate-400 hover:text-slate-200">
+            FR
+          </button>
+        </div>
+
+        <!-- Glowing Purple Resume Button -->
+        <button onclick="openResumeModal()" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold text-white btn-purple-glow">
+          <i data-lucide="download" class="w-3.5 h-3.5"></i>
+          <span data-i18n="nav_cv">Resume</span>
+        </button>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-xl text-slate-300 hover:text-white hover:bg-white/5 border border-white/10 focus:outline-none" aria-label="Open Menu">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-white/10 bg-obsidian/95 backdrop-blur-2xl px-4 pt-3 pb-5 space-y-1.5">
+      <a href="#home" onclick="toggleMobileMenu()" data-i18n="nav_home" class="block px-3 py-2 rounded-lg text-xs font-mono text-slate-200 hover:bg-white/5">Home</a>
+      <a href="#about" onclick="toggleMobileMenu()" data-i18n="nav_about" class="block px-3 py-2 rounded-lg text-xs font-mono text-slate-200 hover:bg-white/5">About</a>
+      <a href="#experience" onclick="toggleMobileMenu()" data-i18n="nav_exp" class="block px-3 py-2 rounded-lg text-xs font-mono text-slate-200 hover:bg-white/5">Experience</a>
+      <a href="#projects" onclick="toggleMobileMenu()" data-i18n="nav_projects" class="block px-3 py-2 rounded-lg text-xs font-mono text-slate-200 hover:bg-white/5">Projects</a>
+      <a href="#skills" onclick="toggleMobileMenu()" data-i18n="nav_skills" class="block px-3 py-2 rounded-lg text-xs font-mono text-slate-200 hover:bg-white/5">Skills</a>
+      <a href="#direction" onclick="toggleMobileMenu()" data-i18n="nav_direction" class="block px-3 py-2 rounded-lg text-xs font-mono text-cyan-300 hover:bg-white/5">Direction</a>
+      <a href="#contact" onclick="toggleMobileMenu()" data-i18n="nav_contact" class="block px-3 py-2 rounded-lg text-xs font-mono text-slate-200 hover:bg-white/5">Contact</a>
+      <div class="pt-2 border-t border-white/10">
+        <button onclick="toggleMobileMenu(); openResumeModal();" class="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold text-white btn-purple-glow">
+          <i data-lucide="download" class="w-4 h-4"></i>
+          <span data-i18n="hero_cta_cv">Download CV</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================== MAIN CONTENT ======================== -->
+  <main class="relative z-10">
+
+    <!-- ======================== HERO SECTION (MATCHING SCREENSHOT image_9a8b24.jpg) ======================== -->
+    <section id="home" class="pt-28 pb-14 md:pt-36 md:pb-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+
+        <!-- Left Column: Positioning & CTAs (7 columns) -->
+        <div class="lg:col-span-7 space-y-6 reveal active">
+
+          <!-- Status Badge -->
+          <div class="inline-flex items-center gap-2.5 text-xs font-mono tracking-[0.16em] uppercase text-cyan-400">
+            <span class="relative flex h-2.5 w-2.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400"></span>
+            </span>
+            <span data-i18n="hero_status">INCIDENT MANAGER @ SOCIÉTÉ GÉNÉRALE ASSURANCES</span>
+          </div>
+
+          <!-- Main Heading: Mehdi (White) + Erahouten (Purple-to-Cyan Gradient) -->
+          <div class="space-y-1">
+            <h1 class="font-display font-extrabold tracking-tight leading-[1.03]" style="font-size: clamp(3rem, 5.6vw, 4.9rem);">
+              <span class="block text-white">Mehdi</span>
+              <span class="block hero-name-gradient">Erahouten</span>
+            </h1>
+          </div>
+
+          <!-- Dynamic Typewriter Subtitle -->
+          <div class="flex items-center gap-2.5 font-display text-xl sm:text-2xl font-semibold text-slate-100 pt-1">
+            <span class="text-slate-500 font-mono text-lg">→</span>
+            <span id="typewriter-text" class="text-white">Incident Manager</span>
+            <span class="inline-block w-[2.5px] h-6 bg-purple-400 animate-cursor-blink"></span>
+          </div>
+
+          <!-- Positioning Statement (Current Role + Forward-Looking Direction) -->
+          <div class="space-y-3 max-w-xl">
+            <p data-i18n="hero_desc_1" class="text-slate-300 text-sm sm:text-base leading-relaxed">
+              Incident Manager at <span class="text-white font-medium">Société Générale Assurances</span> and IT student at <span class="text-white font-medium">ISEP Paris</span>, building expertise across software, systems and production environments while developing a specialization in <span class="text-purple-300 font-medium">Data Engineering</span> and <span class="text-cyan-300 font-medium">Applied AI</span>.
+            </p>
+            <p data-i18n="hero_desc_2" class="text-slate-400 text-xs sm:text-sm font-mono leading-relaxed border-l-2 border-purple-500/50 pl-3.5">
+              Focused on building reliable data pipelines, intelligent automation and AI-powered systems for production environments.
+            </p>
+          </div>
+
+          <!-- CTA Buttons Row (Matches Screenshot) -->
+          <div class="flex flex-wrap items-center gap-3.5 pt-2">
+            <button onclick="openResumeModal()" class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl text-sm font-semibold text-white btn-purple-glow">
+              <i data-lucide="download" class="w-4 h-4"></i>
+              <span data-i18n="hero_cta_cv">Download CV</span>
+            </button>
+            <a href="#contact" class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl text-sm font-semibold bg-white/[0.03] hover:bg-white/[0.08] text-slate-100 border border-white/[0.12] hover:border-purple-400/40 transition-all transform hover:-translate-y-0.5">
+              <span data-i18n="hero_cta_contact">Get in touch</span>
+              <i data-lucide="arrow-right" class="w-4 h-4 text-slate-300"></i>
+            </a>
+            <a href="#projects" class="inline-flex items-center gap-2 px-4 py-3.5 rounded-2xl text-xs font-mono text-slate-300 hover:text-white bg-white/[0.02] hover:bg-white/[0.06] border border-white/[0.08] transition-all">
+              <i data-lucide="layers" class="w-3.5 h-3.5 text-cyan-400"></i>
+              <span data-i18n="hero_cta_projects">View Projects</span>
+            </a>
+          </div>
+
+          <!-- Social Links Row -->
+          <div class="pt-3 flex flex-wrap items-center gap-6 text-xs sm:text-sm font-medium text-slate-400">
+            <a href="https://github.com/merahouten" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 hover:text-white transition-colors">
+              <i data-lucide="github" class="w-4 h-4 text-slate-400"></i>
+              <span>GitHub</span>
+            </a>
+            <a href="https://www.linkedin.com/in/mehdi-erahouten-a573b02ba" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 hover:text-white transition-colors">
+              <i data-lucide="linkedin" class="w-4 h-4 text-slate-400"></i>
+              <span>LinkedIn</span>
+            </a>
+            <a href="mailto:merahouten@gmail.com" class="inline-flex items-center gap-2 hover:text-white transition-colors">
+              <i data-lucide="mail" class="w-4 h-4 text-slate-400"></i>
+              <span>Email</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Studio Portrait Card + Floating Badges (Matches image_9a8b24.jpg) -->
+        <div class="lg:col-span-5 flex flex-col items-center lg:items-end reveal active">
+          <div class="relative w-[310px] sm:w-[350px]">
+
+            <!-- Overlapping Top-Right Floating Badge: top stack -->
+            <div class="floating-glass-badge rounded-2xl px-4 py-2.5 absolute -top-5 -right-3 sm:-right-6 z-20">
+              <p class="font-mono text-[10px] text-slate-400 mb-1.5 tracking-wider lowercase">top stack</p>
+              <div class="flex items-center gap-2.5">
+                <!-- Python -->
+                <span title="Python" class="w-6 h-6 flex items-center justify-center">
+                  <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none">
+                    <path d="M11.9 2C7.8 2 8.2 3.8 8.2 3.8V5.8H12.1V6.5H6.5C6.5 6.5 4 6.2 4 10.2C4 14.2 6.2 14 6.2 14H7.5V12.1C7.5 12.1 7.4 9.9 9.7 9.9H14C14 9.9 15.9 9.9 15.9 8V4.2C15.9 4.2 16.2 2 11.9 2Z" fill="#387EB8"/>
+                    <path d="M12.1 22C16.2 22 15.8 20.2 15.8 20.2V18.2H11.9V17.5H17.5C17.5 17.5 20 17.8 20 13.8C20 9.8 17.8 10 17.8 10H16.5V11.9C16.5 11.9 16.6 14.1 14.3 14.1H10C10 14.1 8.1 14.1 8.1 16V19.8C8.1 19.8 7.8 22 12.1 22Z" fill="#FFE052"/>
+                  </svg>
+                </span>
+                <!-- Claude Code / AI -->
+                <span title="Claude Code & Applied AI" class="w-6 h-6 flex items-center justify-center">
+                  <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none">
+                    <rect x="2.5" y="3.5" width="19" height="17" rx="4" stroke="#D97757" stroke-width="2" fill="#D97757" fill-opacity="0.18"/>
+                    <path d="M7.5 9.5L10.5 12L7.5 14.5" stroke="#FBBF24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12.5 14.5H16.5" stroke="#FBBF24" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <!-- Docker -->
+                <span title="Docker" class="w-6 h-6 flex items-center justify-center">
+                  <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none">
+                    <rect x="5" y="10" width="2.6" height="2.4" rx="0.4" fill="#2496ED"/>
+                    <rect x="8.2" y="10" width="2.6" height="2.4" rx="0.4" fill="#2496ED"/>
+                    <rect x="11.4" y="10" width="2.6" height="2.4" rx="0.4" fill="#2496ED"/>
+                    <rect x="8.2" y="7" width="2.6" height="2.4" rx="0.4" fill="#38BDF8"/>
+                    <path d="M3 13.2H16.8C17.9 13.2 18.8 12.5 19.4 11.6C20.3 11.9 21.1 12.6 21.2 13.6C19.8 14.8 18.2 15 16.9 15C15.9 18 12.8 19.5 8.8 19.5C5.2 19.5 3.2 17.2 3 13.2Z" fill="#2496ED"/>
+                  </svg>
+                </span>
+                <!-- SQL / PostgreSQL -->
+                <span title="SQL & Databases" class="w-6 h-6 flex items-center justify-center">
+                  <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none">
+                    <ellipse cx="12" cy="6.5" rx="7" ry="3" stroke="#EF4444" stroke-width="2" fill="#EF4444" fill-opacity="0.25"/>
+                    <path d="M5 6.5V12C5 13.66 8.13 15 12 15C15.87 15 19 13.66 19 12V6.5" stroke="#F87171" stroke-width="2"/>
+                    <path d="M5 12V17.5C5 19.16 8.13 20.5 12 20.5C15.87 20.5 19 19.16 19 17.5V12" stroke="#EF4444" stroke-width="2"/>
+                  </svg>
+                </span>
+              </div>
+            </div>
+
+            <!-- Studio Portrait Container (350x410 rounded-3xl) -->
+            <div class="studio-portrait-frame w-full h-[380px] sm:h-[415px] rounded-[22px] overflow-hidden relative border border-white/15 flex items-end justify-center group">
+              <!-- High-resolution cutout portrait image (unnamed__1_-removebg-preview.png) -->
+              <img
+                id="hero-portrait-img"
+                src="unnamed__1_-removebg-preview.png"
+                alt="Mehdi Erahouten"
+                class="w-full h-[95%] object-contain object-bottom select-none transition-transform duration-500 group-hover:scale-[1.02] relative z-10"
+                onerror="handlePortraitFallback()"
+              />
+
+              <!-- Studio Suit Silhouette Fallback (Displayed only if unnamed__1_-removebg-preview.png isn't found in folder yet) -->
+              <div id="portrait-svg-fallback" class="hidden absolute inset-0 flex flex-col items-center justify-end pointer-events-none">
+                <svg viewBox="0 0 340 400" class="w-full h-[94%]" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Subtle Studio Halo -->
+                  <circle cx="170" cy="150" r="110" fill="url(#studioGlow)" opacity="0.55"/>
+                  <!-- Suit Shoulders & Jacket -->
+                  <path d="M35 400C42 325 88 292 170 292C252 292 298 325 305 400H35Z" fill="#1E2028"/>
+                  <!-- White Dress Shirt -->
+                  <path d="M132 290L170 375L208 290H132Z" fill="#F1F5F9"/>
+                  <!-- Striped Tie -->
+                  <path d="M161 312H179L184 388L170 400L156 388L161 312Z" fill="#94A3B8"/>
+                  <path d="M160 328L180 336M158 348L182 356M157 368L183 376" stroke="#E2E8F0" stroke-width="3"/>
+                  <!-- Suit Lapels -->
+                  <path d="M126 292L170 378L142 400H98L126 292Z" fill="#14161D"/>
+                  <path d="M214 292L170 378L198 400H242L214 292Z" fill="#14161D"/>
+                  <!-- Neck -->
+                  <rect x="144" y="238" width="52" height="62" rx="18" fill="#D6A984"/>
+                  <!-- Shirt Collar -->
+                  <path d="M134 278L170 314L150 326L124 294L134 278Z" fill="#FFFFFF"/>
+                  <path d="M206 278L170 314L190 326L216 294L206 278Z" fill="#FFFFFF"/>
+                  <!-- Head -->
+                  <path d="M114 142C114 98 136 72 170 72C204 72 226 98 226 142C226 196 202 246 170 246C138 246 114 196 114 142Z" fill="#DFB48F"/>
+                  <!-- Hair -->
+                  <path d="M114 134C112 94 136 66 172 66C206 66 228 92 226 134C222 108 206 94 170 94C136 94 118 108 114 134Z" fill="#3B2B20"/>
+                  <defs>
+                    <radialGradient id="studioGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(170 150) rotate(90) scale(110)">
+                      <stop stop-color="#FFFFFF" stop-opacity="0.35"/>
+                      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+                    </radialGradient>
+                  </defs>
+                </svg>
+              </div>
+
+              <!-- Subtle Camera Button to Embed Local Photo File into HTML -->
+              <button
+                type="button"
+                onclick="triggerPortraitUpload()"
+                title="Select unnamed__1_-removebg-preview.png to permanently embed your photo into the HTML"
+                class="absolute bottom-3 right-3 z-30 inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-black/65 hover:bg-purple-600/80 text-[11px] font-mono text-slate-200 border border-white/15 backdrop-blur-md transition-all opacity-80 group-hover:opacity-100"
+              >
+                <i data-lucide="camera" class="w-3.5 h-3.5 text-purple-300"></i>
+                <span id="embed-photo-label" data-i18n="btn_embed_photo">Embed Photo</span>
+              </button>
+            </div>
+
+            <!-- Overlapping Bottom-Left Floating Badge: currently @ Société Générale Assurances -->
+            <div class="floating-glass-badge rounded-2xl px-4 py-3 absolute -bottom-5 -left-3 sm:-left-7 z-20 max-w-[275px]">
+              <p data-i18n="badge_currently" class="font-mono text-[10px] text-slate-400 mb-1 tracking-wider lowercase">currently @</p>
+              <div class="flex items-center gap-2.5">
+                <!-- SG-inspired red/black/white emblem -->
+                <span class="w-6 h-6 rounded-md overflow-hidden border border-white/20 flex flex-col shrink-0 shadow-sm">
+                  <span class="h-1/2 w-full bg-[#E60028]"></span>
+                  <span class="h-1/2 w-full bg-[#0f172a] flex items-center justify-center">
+                    <span class="w-3 h-[1.5px] bg-white"></span>
+                  </span>
+                </span>
+                <div class="leading-tight">
+                  <p class="text-xs font-bold text-white tracking-tight">Société Générale Assurances</p>
+                  <p data-i18n="badge_role_sub" class="text-[11px] font-mono text-slate-300 mt-0.5">Incident Manager · ISEP Paris</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Compact Identity Summary Pills Underneath Portrait -->
+          <div class="mt-9 w-[310px] sm:w-[350px] grid grid-cols-2 gap-2 text-[11px] font-mono">
+            <div class="px-3 py-2 rounded-xl bg-white/[0.03] border border-white/[0.07]">
+              <span data-i18n="id_label_edu" class="text-slate-400 block text-[10px]">Education</span>
+              <span class="text-slate-200 font-medium">Bachelor IPN · ISEP</span>
+            </div>
+            <div class="px-3 py-2 rounded-xl bg-white/[0.03] border border-white/[0.07]">
+              <span data-i18n="id_label_track" class="text-slate-400 block text-[10px]">Career Track</span>
+              <span class="text-cyan-300 font-medium">Data &amp; Applied AI</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Center SCROLL Indicator (Matches Screenshot) -->
+      <div class="mt-12 sm:mt-16 flex flex-col items-center justify-center">
+        <a href="#about" class="group flex flex-col items-center gap-2 text-[10px] font-mono tracking-[0.3em] uppercase text-slate-500 hover:text-slate-300 transition-colors">
+          <span>SCROLL</span>
+          <span class="w-px h-9 bg-gradient-to-b from-purple-400/70 to-transparent relative">
+            <span class="w-1.5 h-1.5 rounded-full bg-purple-400 absolute -left-[2.5px] top-0 animate-bounce"></span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ======================== TWO-ROW TECHNOLOGIES & TOOLS ICON MARQUEE (MATCHING image_99fd5d.png) ======================== -->
+    <section aria-label="Technologies and Tools" class="py-12 border-y border-white/[0.06] bg-[#06060b]/90 overflow-hidden relative">
+      <div class="text-center mb-9 px-4">
+        <p data-i18n="marquee_heading" class="font-mono text-xs sm:text-sm uppercase tracking-[0.38em] text-slate-400 font-medium">
+          TECHNOLOGIES &amp; TOOLS
+        </p>
+      </div>
+
+      <!-- Marquee Container with Left/Right Fade Mask -->
+      <div class="marquee-mask space-y-7 max-w-[1600px] mx-auto">
+        <!-- ROW 1 (Scrolls Left) -->
+        <div class="relative flex overflow-x-hidden">
+          <div id="marquee-row-1" class="animate-marquee-left marquee-row flex items-center gap-7 sm:gap-9 px-4"></div>
+        </div>
+
+        <!-- ROW 2 (Scrolls Right) -->
+        <div class="relative flex overflow-x-hidden">
+          <div id="marquee-row-2" class="animate-marquee-right marquee-row flex items-center gap-7 sm:gap-9 px-4"></div>
+        </div>
+      </div>
+
+      <div class="mt-10 max-w-4xl mx-auto h-px bg-gradient-to-r from-transparent via-purple-500/35 to-transparent"></div>
+    </section>
+
+    <!-- ======================== 01 — ABOUT, EDUCATION, LANGUAGES & CERTIFICATIONS ======================== -->
+    <section id="about" class="py-20 md:py-28 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 reveal">
+        <p data-i18n="sec1_num" class="font-mono text-xs uppercase tracking-widest text-purple-400 mb-2">01 — About</p>
+        <h2 data-i18n="sec1_title" class="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">From Production Reliability to Data &amp; AI Systems</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+        <!-- Left Column: Narrative + Spoken Languages (7 columns) -->
+        <div class="lg:col-span-7 space-y-6 reveal">
+          <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+            <p data-i18n="about_p1" class="text-slate-300 leading-relaxed text-sm sm:text-base">
+              I am an <span class="text-white font-semibold">Incident Manager at Société Générale Assurances</span> and an engineering student pursuing the <span class="text-purple-300 font-medium">Bachelor Informatique et Projets Numériques (IPN) at ISEP Paris</span>. Working directly with enterprise production environments has given me a strong appreciation for how critical IT systems behave under pressure—where service continuity, rapid diagnostics, and structured coordination matter every day.
+            </p>
+            <p data-i18n="about_p2" class="text-slate-300 leading-relaxed text-sm sm:text-base">
+              Alongside incident management and IT service operations (<span class="text-white font-medium">ITIL® 4, production monitoring, troubleshooting</span>), I build software applications and AI-powered workflows (<span class="text-white font-medium">Python, SQL, TypeScript, React Native, REST APIs</span>). I work extensively with <span class="text-amber-300 font-medium">Claude Code</span> and <span class="text-cyan-300 font-medium">Applied AI</span> tools—leveraging agentic coding, structured context engineering, and conversational AI agents to ship prototypes, automate processes, and accelerate full-stack delivery.
+            </p>
+            <p data-i18n="about_p3" class="text-slate-300 leading-relaxed text-sm sm:text-base">
+              Today, I am channeling this foundation—<span class="text-cyan-300 font-medium">production reliability + AI-accelerated software engineering</span>—toward <span class="text-emerald-300 font-semibold">Data Engineering, Cloud Infrastructure, and Applied AI</span>, while also bringing strong creative execution in <span class="text-white font-medium">photography, videography, video production, and community management</span>.
+            </p>
+          </div>
+
+          <!-- Spoken Languages Card (French C1, English C1, Arabic Native) -->
+          <div class="glass-card rounded-2xl p-6">
+            <h3 class="text-xs font-mono uppercase tracking-wider text-slate-400 mb-4 flex items-center gap-2">
+              <i data-lucide="languages" class="w-4 h-4 text-purple-400"></i>
+              <span data-i18n="about_lang_heading">Spoken Languages</span>
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div class="p-3.5 rounded-xl bg-white/[0.03] border border-white/[0.07] flex items-center gap-3">
+                <span class="text-2xl" aria-hidden="true">🇫🇷</span>
+                <div>
+                  <p data-i18n="lang_fr_title" class="text-sm font-semibold text-white">French — C1</p>
+                  <p data-i18n="lang_fr_sub" class="text-xs font-mono text-emerald-400">Fluent / Professional</p>
+                </div>
+              </div>
+              <div class="p-3.5 rounded-xl bg-white/[0.03] border border-white/[0.07] flex items-center gap-3">
+                <span class="text-2xl" aria-hidden="true">🇬🇧</span>
+                <div>
+                  <p data-i18n="lang_en_title" class="text-sm font-semibold text-white">English — C1</p>
+                  <p data-i18n="lang_en_sub" class="text-xs font-mono text-cyan-400">Advanced / Professional</p>
+                </div>
+              </div>
+              <div class="p-3.5 rounded-xl bg-white/[0.03] border border-white/[0.07] flex items-center gap-3">
+                <span class="text-2xl" aria-hidden="true">🇲🇦</span>
+                <div>
+                  <p data-i18n="lang_ar_title" class="text-sm font-semibold text-white">Arabic</p>
+                  <p data-i18n="lang_ar_sub" class="text-xs font-mono text-purple-400">Native</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Education & Positioning Pillars (5 columns) -->
+        <div class="lg:col-span-5 space-y-6 reveal">
+          <div class="glass-card rounded-2xl p-6 sm:p-7">
+            <h3 class="text-xs font-mono uppercase tracking-wider text-slate-400 mb-6 flex items-center gap-2">
+              <i data-lucide="graduation-cap" class="w-4 h-4 text-purple-400"></i>
+              <span data-i18n="about_edu_heading">Education</span>
+            </h3>
+
+            <div class="relative pl-6 border-l border-white/10 space-y-8">
+              <!-- ISEP Paris -->
+              <div class="relative group">
+                <span class="absolute -left-[29px] top-1 w-3.5 h-3.5 rounded-full bg-purple-500 ring-4 ring-obsidian"></span>
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+                  <span class="text-xs font-mono text-purple-400 font-semibold">2025 – 2028</span>
+                  <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-purple-500/10 text-purple-300 border border-purple-500/20">Paris, France</span>
+                </div>
+                <h4 class="text-base font-bold text-white">ISEP Paris — École d'ingénieurs du numérique</h4>
+                <p data-i18n="edu1_degree" class="text-xs sm:text-sm text-slate-300 mt-1">
+                  Bachelor Informatique et Projets Numériques (IPN)
+                </p>
+                <p data-i18n="edu1_focus" class="text-xs font-mono text-slate-400 mt-2">
+                  Software Development · Databases &amp; SQL · Networks · Cloud &amp; AI Projects
+                </p>
+              </div>
+
+              <!-- Scientific Baccalauréat -->
+              <div class="relative group">
+                <span class="absolute -left-[29px] top-1 w-3.5 h-3.5 rounded-full bg-slate-600 group-hover:bg-cyan-400 transition-colors ring-4 ring-obsidian"></span>
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+                  <span data-i18n="edu2_label" class="text-xs font-mono text-slate-400">Scientific Secondary Diploma</span>
+                </div>
+                <h4 data-i18n="edu2_title" class="text-base font-bold text-white">Baccalauréat Scientifique</h4>
+                <p data-i18n="edu2_degree" class="text-xs sm:text-sm text-slate-300 mt-1">
+                  Mathematics Specialization
+                </p>
+                <p class="text-xs font-mono text-cyan-400/90 mt-2">
+                  Mathematics · Physics · Algorithmic Foundations
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Core Engineering Principles Box -->
+          <div class="glass-card rounded-2xl p-6 border border-cyan-500/20">
+            <h3 class="text-xs font-mono uppercase tracking-wider text-cyan-400 mb-3 flex items-center gap-2">
+              <i data-lucide="layers" class="w-4 h-4"></i>
+              <span data-i18n="about_pillars_title">Positioning Pillars</span>
+            </h3>
+            <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300">
+              <li class="flex items-start gap-2.5">
+                <span class="text-purple-400 font-mono font-bold">01.</span>
+                <span data-i18n="pillar_1"><strong class="text-white">Current Role:</strong> Incident Manager at Société Générale Assurances coordinating production reliability &amp; IT service workflows.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-amber-400 font-mono font-bold">02.</span>
+                <span data-i18n="pillar_2"><strong class="text-white">AI &amp; Dev Velocity:</strong> Advanced workflow with Claude Code, AI agents, Python, SQL, TypeScript &amp; React Native.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-cyan-400 font-mono font-bold">03.</span>
+                <span data-i18n="pillar_3"><strong class="text-white">Specialization Track:</strong> Data Engineering pipelines, Cloud platforms &amp; production AI systems.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Licenses & Certifications Grid (6 Verified LinkedIn Credentials) -->
+      <div class="mt-10 glass-card rounded-2xl p-6 sm:p-8 reveal">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
+          <h3 class="text-xs font-mono uppercase tracking-wider text-slate-300 flex items-center gap-2">
+            <i data-lucide="award" class="w-4 h-4 text-purple-400"></i>
+            <span data-i18n="cert_heading">Licenses, Certifications &amp; Verified Training (6)</span>
+          </h3>
+          <span data-i18n="cert_subheading" class="text-xs font-mono text-slate-400">Verified LinkedIn Credentials</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+          <!-- 1. ITIL 4 Foundation in Practice -->
+          <div class="p-4 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.08] hover:border-emerald-500/30 transition-all flex flex-col justify-between gap-3">
+            <div>
+              <div class="flex items-start justify-between gap-2 mb-2.5">
+                <span class="w-8 h-8 rounded-lg bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
+                  <i data-lucide="shield-check" class="w-4 h-4"></i>
+                </span>
+                <span data-i18n="cert1_date" class="text-[11px] font-mono text-emerald-300 bg-emerald-500/10 px-2.5 py-0.5 rounded border border-emerald-500/20">June 2026</span>
+              </div>
+              <h4 data-i18n="cert1_name" class="text-sm font-bold text-white leading-snug">
+                ITIL® en pratique : Appliquer les concepts d'ITIL® 4 Foundation
+              </h4>
+              <p class="text-xs font-mono text-slate-400 mt-1">LinkedIn</p>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-2 border-t border-white/[0.06]">
+              <span data-i18n="cert1_tag1" class="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">IT Service Management</span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/[0.04] text-slate-300 border border-white/10">ITIL® 4</span>
+            </div>
+          </div>
+
+          <!-- 2. L'essentiel de Git -->
+          <div class="p-4 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.08] hover:border-rose-500/30 transition-all flex flex-col justify-between gap-3">
+            <div>
+              <div class="flex items-start justify-between gap-2 mb-2.5">
+                <span class="w-8 h-8 rounded-lg bg-rose-500/15 border border-rose-500/30 flex items-center justify-center text-rose-400 shrink-0">
+                  <i data-lucide="git-branch" class="w-4 h-4"></i>
+                </span>
+                <span data-i18n="cert4_date" class="text-[11px] font-mono text-slate-300 bg-white/[0.05] px-2.5 py-0.5 rounded border border-white/10">February 2026</span>
+              </div>
+              <h4 data-i18n="cert4_name" class="text-sm font-bold text-white leading-snug">
+                L'essentiel de Git
+              </h4>
+              <p class="text-xs font-mono text-slate-400 mt-1">LinkedIn</p>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-2 border-t border-white/[0.06]">
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-rose-500/10 text-rose-300 border border-rose-500/20">Git</span>
+              <span data-i18n="cert4_tag2" class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/[0.04] text-slate-300 border border-white/10">Version Control</span>
+            </div>
+          </div>
+
+          <!-- 3. Vibe Coding / AI-Assisted Coding -->
+          <div class="p-4 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.08] hover:border-purple-500/30 transition-all flex flex-col justify-between gap-3">
+            <div>
+              <div class="flex items-start justify-between gap-2 mb-2.5">
+                <span class="w-8 h-8 rounded-lg bg-purple-500/15 border border-purple-500/30 flex items-center justify-center text-purple-400 shrink-0">
+                  <i data-lucide="sparkles" class="w-4 h-4"></i>
+                </span>
+                <span data-i18n="cert3_date" class="text-[11px] font-mono text-purple-300 bg-purple-500/10 px-2.5 py-0.5 rounded border border-purple-500/20">February 2026</span>
+              </div>
+              <h4 data-i18n="cert3_name" class="text-sm font-bold text-white leading-snug">
+                Découvrir le vibe coding : Coder avec l'aide de l'IA
+              </h4>
+              <p class="text-xs font-mono text-slate-400 mt-1">LinkedIn</p>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-2 border-t border-white/[0.06]">
+              <span data-i18n="cert3_tag1" class="px-2 py-0.5 rounded text-[10px] font-mono bg-purple-500/10 text-purple-300 border border-purple-500/20">AI Software Dev</span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-amber-500/10 text-amber-300 border border-amber-500/20">Claude Code &amp; AI</span>
+            </div>
+          </div>
+
+          <!-- 4. Microsoft Azure Fundamentals (AZ-900) — Explicitly badged as Exam Prep Training -->
+          <div class="p-4 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.08] hover:border-cyan-500/30 transition-all flex flex-col justify-between gap-3">
+            <div>
+              <div class="flex items-start justify-between gap-2 mb-2.5">
+                <span class="w-8 h-8 rounded-lg bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shrink-0">
+                  <i data-lucide="cloud" class="w-4 h-4"></i>
+                </span>
+                <div class="flex items-center gap-1.5">
+                  <span data-i18n="cert2_prep_badge" class="text-[10px] font-mono text-amber-300 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/25">Exam Prep Training</span>
+                  <span data-i18n="cert2_date" class="text-[11px] font-mono text-cyan-300 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20">February 2026</span>
+                </div>
+              </div>
+              <h4 data-i18n="cert2_name" class="text-sm font-bold text-white leading-snug">
+                Préparer la Certification Microsoft Azure Fundamentals (AZ-900)
+              </h4>
+              <p data-i18n="cert2_issuer" class="text-xs font-mono text-slate-400 mt-1">LinkedIn — Preparation Training (Not Official Exam Certification)</p>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-2 border-t border-white/[0.06]">
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">Microsoft Azure</span>
+              <span data-i18n="cert2_tag2" class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/[0.04] text-slate-300 border border-white/10">Cloud Fundamentals</span>
+            </div>
+          </div>
+
+          <!-- 5. Gérer les techniciens / techniciennes -->
+          <div class="p-4 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.08] hover:border-amber-500/30 transition-all flex flex-col justify-between gap-3">
+            <div>
+              <div class="flex items-start justify-between gap-2 mb-2.5">
+                <span class="w-8 h-8 rounded-lg bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
+                  <i data-lucide="users" class="w-4 h-4"></i>
+                </span>
+                <span data-i18n="cert5_date" class="text-[11px] font-mono text-slate-300 bg-white/[0.05] px-2.5 py-0.5 rounded border border-white/10">February 2026</span>
+              </div>
+              <h4 data-i18n="cert5_name" class="text-sm font-bold text-white leading-snug">
+                Gérer les techniciens / techniciennes
+              </h4>
+              <p class="text-xs font-mono text-slate-400 mt-1">LinkedIn</p>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-2 border-t border-white/[0.06]">
+              <span data-i18n="cert5_tag1" class="px-2 py-0.5 rounded text-[10px] font-mono bg-amber-500/10 text-amber-300 border border-amber-500/20">Technical Team Coordination</span>
+            </div>
+          </div>
+
+          <!-- 6. Les fondements de la gestion administrative -->
+          <div class="p-4 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.08] hover:border-indigo-500/30 transition-all flex flex-col justify-between gap-3">
+            <div>
+              <div class="flex items-start justify-between gap-2 mb-2.5">
+                <span class="w-8 h-8 rounded-lg bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-400 shrink-0">
+                  <i data-lucide="briefcase" class="w-4 h-4"></i>
+                </span>
+                <span data-i18n="cert6_date" class="text-[11px] font-mono text-slate-300 bg-white/[0.05] px-2.5 py-0.5 rounded border border-white/10">February 2026</span>
+              </div>
+              <h4 data-i18n="cert6_name" class="text-sm font-bold text-white leading-snug">
+                Les fondements de la gestion administrative
+              </h4>
+              <p class="text-xs font-mono text-slate-400 mt-1">LinkedIn</p>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-2 border-t border-white/[0.06]">
+              <span data-i18n="cert6_tag1" class="px-2 py-0.5 rounded text-[10px] font-mono bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">Administrative Processes</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== 02 — EXPERIENCE SECTION ======================== -->
+    <section id="experience" class="py-20 md:py-28 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-white/[0.06]">
+      <div class="mb-12 reveal">
+        <p data-i18n="sec2_num" class="font-mono text-xs uppercase tracking-widest text-purple-400 mb-2">02 — Experience</p>
+        <h2 data-i18n="sec2_title" class="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">Professional Missions &amp; Experience</h2>
+      </div>
+
+      <div class="space-y-6">
+
+        <!-- 1. Incident Manager @ Société Générale Assurances -->
+        <article class="glass-card rounded-2xl p-6 sm:p-8 reveal relative overflow-hidden border-purple-500/25">
+          <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-5">
+            <div class="flex items-start gap-4">
+              <!-- SG Emblem -->
+              <div class="w-12 h-12 rounded-xl overflow-hidden border border-white/20 flex flex-col shrink-0 shadow-md">
+                <div class="h-1/2 w-full bg-[#E60028]"></div>
+                <div class="h-1/2 w-full bg-[#0f172a] flex items-center justify-center">
+                  <div class="w-5 h-0.5 bg-white"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex flex-wrap items-center gap-2.5">
+                  <h3 data-i18n="exp1_role" class="text-lg sm:text-xl font-bold text-white">Incident Manager — IT Production &amp; Service Management</h3>
+                  <span data-i18n="exp1_badge" class="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">CURRENT MISSION</span>
+                </div>
+                <p class="text-sm font-mono text-slate-400 mt-1">
+                  <span data-i18n="exp1_org" class="text-purple-300 font-semibold">Société Générale Assurances</span> · <span data-i18n="exp1_meta">Paris, France · 2026 – Present</span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <ul class="space-y-2.5 text-sm sm:text-base text-slate-300 list-disc list-inside marker:text-purple-400 mb-6">
+            <li data-i18n="exp1_b1">End-to-end incident lifecycle coordination across enterprise production systems, ensuring rapid qualification, prioritization, and structured follow-up.</li>
+            <li data-i18n="exp1_b2">Production monitoring, anomaly triage, and operational reliability in close collaboration with infrastructure and engineering teams.</li>
+            <li data-i18n="exp1_b3">Application of ITIL® 4 service management practices, SLA tracking, cross-functional communication, and clear technical documentation.</li>
+          </ul>
+
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/[0.04] text-emerald-300 border border-white/10">Incident Management</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/[0.04] text-purple-300 border border-white/10">ITIL® 4</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/[0.04] text-slate-300 border border-white/10">Production Monitoring</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/[0.04] text-slate-300 border border-white/10">Troubleshooting</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/[0.04] text-slate-300 border border-white/10">Operational Reliability</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/[0.04] text-slate-300 border border-white/10">SLA &amp; Documentation</span>
+          </div>
+        </article>
+
+        <!-- 2. Mobile & AI Application Developer — LockIn -->
+        <article class="glass-card rounded-2xl p-6 sm:p-8 reveal">
+          <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-5">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center font-mono font-bold text-cyan-300 shrink-0">
+                LI
+              </div>
+              <div>
+                <div class="flex flex-wrap items-center gap-2.5">
+                  <h3 data-i18n="exp2_role" class="text-lg sm:text-xl font-bold text-white">Mobile &amp; AI Application Developer</h3>
+                  <span data-i18n="exp2_badge" class="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">Independent Product Mission</span>
+                </div>
+                <p class="text-sm font-mono text-slate-400 mt-1">
+                  <span class="text-cyan-400 font-medium">LockIn</span> · <span data-i18n="exp2_meta">Paris, France · Aug 2025 – Present</span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <ul class="space-y-2.5 text-sm sm:text-base text-slate-300 list-disc list-inside marker:text-cyan-400 mb-6">
+            <li data-i18n="exp2_b1">Designed and built an AI-powered execution and productivity platform integrating an automated conversational agent that transforms user goals into structured schedules, tasks, and Pomodoro focus sessions.</li>
+            <li data-i18n="exp2_b2">Leveraged Claude Code and agentic coding workflows to accelerate full-stack development, REST API integration, and structured JSON data persistence.</li>
+          </ul>
+
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/[0.04] text-cyan-300 border border-white/10">React Native</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/[0.04] text-amber-300 border border-white/10">Claude Code</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/[0.04] text-emerald-300 border border-white/10">AI Agents</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/[0.04] text-slate-300 border border-white/10">JavaScript / TypeScript</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/[0.04] text-slate-300 border border-white/10">REST API &amp; JSON</span>
+          </div>
+        </article>
+
+        <!-- 3. Finalist (2nd Place) — Tenexa x ISEP Paris Hackathon -->
+        <article class="glass-card rounded-2xl p-6 sm:p-8 reveal">
+          <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-5">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center font-mono font-bold text-amber-300 shrink-0">
+                TX
+              </div>
+              <div>
+                <div class="flex flex-wrap items-center gap-2.5">
+                  <h3 data-i18n="exp3_role" class="text-lg sm:text-xl font-bold text-white">Finalist (2nd Place) — Full-Stack &amp; Mobile Developer</h3>
+                  <span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/30">Top 2 Hackathon</span>
+                </div>
+                <p class="text-sm font-mono text-slate-400 mt-1">
+                  <span class="text-amber-300 font-medium">Tenexa × ISEP Paris Hackathon</span> · <span data-i18n="exp3_meta">Paris, France · Sept 2025 – Jan 2026</span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <ul class="space-y-2.5 text-sm sm:text-base text-slate-300 list-disc list-inside marker:text-amber-400 mb-6">
+            <li data-i18n="exp3_b1">Co-developed a full-stack React Native (Expo) and TypeScript field-technician mobile application consuming REST APIs with NativeWind (Tailwind CSS) UI, ranking Top 2 overall.</li>
+            <li data-i18n="exp3_b2">Led application structuring, real-time data interaction logic, and final technical demonstration in front of an executive jury.</li>
+          </ul>
+
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/[0.04] text-amber-300 border border-white/10">React Native (Expo)</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/[0.04] text-cyan-300 border border-white/10">TypeScript</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/[0.04] text-slate-300 border border-white/10">NativeWind / Tailwind</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/[0.04] text-slate-300 border border-white/10">REST APIs</span>
+          </div>
+        </article>
+
+        <!-- 4. Web Developer & E-Commerce Founder (Brand Name Removed) -->
+        <article class="glass-card rounded-2xl p-6 sm:p-8 reveal">
+          <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-5">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center font-mono font-bold text-indigo-300 shrink-0">
+                EC
+              </div>
+              <div>
+                <h3 data-i18n="exp4_role" class="text-lg sm:text-xl font-bold text-white">Web Developer &amp; E-Commerce Founder</h3>
+                <p class="text-sm font-mono text-slate-400 mt-1">
+                  <span data-i18n="exp4_org" class="text-indigo-400 font-medium">Independent E-Commerce Brand</span> · <span data-i18n="exp4_meta">Paris, France · Aug 2023 – Present</span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <ul class="space-y-2.5 text-sm sm:text-base text-slate-300 list-disc list-inside marker:text-indigo-400 mb-6">
+            <li data-i18n="exp4_b1">Full e-commerce platform development with automated marketing, order logistics, customer communication workflows, and generative AI content pipelines.</li>
+            <li data-i18n="exp4_b2">Designed responsive web storefronts and custom automation scripts to streamline digital operations end-to-end.</li>
+          </ul>
+
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/[0.04] text-indigo-300 border border-white/10">Full-Stack Web</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/[0.04] text-emerald-300 border border-white/10">AI Content Pipelines</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/[0.04] text-slate-300 border border-white/10">Workflow Automation</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/[0.04] text-slate-300 border border-white/10">HTML / CSS / JS</span>
+          </div>
+        </article>
+
+        <!-- 5. Photographer, Videographer & Community Manager -->
+        <article class="glass-card rounded-2xl p-6 sm:p-8 reveal">
+          <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-5">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-rose-500/15 border border-rose-500/30 flex items-center justify-center font-mono font-bold text-rose-300 shrink-0">
+                VP
+              </div>
+              <div>
+                <div class="flex flex-wrap items-center gap-2.5">
+                  <h3 data-i18n="exp5_role" class="text-lg sm:text-xl font-bold text-white">Photographer, Videographer &amp; Community Manager</h3>
+                  <span data-i18n="exp5_badge" class="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold bg-rose-500/15 text-rose-300 border border-rose-500/30">Freelance Mission</span>
+                </div>
+                <p class="text-sm font-mono text-slate-400 mt-1">
+                  <span class="text-rose-400 font-medium">Parisien_Parisienne_Number1</span> · <span data-i18n="exp5_meta">Freelance Mission · Paris, France · Dec 2022 – Present</span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <ul class="space-y-2.5 text-sm sm:text-base text-slate-300 list-disc list-inside marker:text-rose-400 mb-6">
+            <li data-i18n="exp5_b1">High-end urban photography (Canon R8), commercial video production &amp; Reels editing (Adobe Premiere Pro), and social media community management for Parisian brands, restaurants, and architectural landmarks.</li>
+            <li data-i18n="exp5_b2">Integrated an automated Voiceflow AI booking chatbot that reduced appointment scheduling time by 90% with automated database logging for client follow-up and maintenance.</li>
+          </ul>
+
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/[0.04] text-rose-300 border border-white/10">Photography (Canon R8)</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/[0.04] text-purple-300 border border-white/10">Video Production (Premiere Pro)</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/[0.04] text-emerald-300 border border-white/10">Voiceflow AI Chatbot (-90% Booking Time)</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/[0.04] text-slate-300 border border-white/10">Community Management</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ======================== 03 — PROJECTS SECTION ======================== -->
+    <section id="projects" class="py-20 md:py-28 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-white/[0.06]">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 reveal">
+        <div>
+          <p data-i18n="sec3_num" class="font-mono text-xs uppercase tracking-widest text-purple-400 mb-2">03 — Projects</p>
+          <h2 data-i18n="sec3_title" class="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">Real Systems &amp; Projects</h2>
+        </div>
+
+        <!-- Filters: All, Featured, Data & AI, Web & Automation, Mobile, Systems & Networks -->
+        <div class="flex flex-wrap items-center gap-1.5 bg-white/[0.03] p-1.5 rounded-xl border border-white/10 w-fit" role="tablist" aria-label="Project categories">
+          <button onclick="filterProjects('all')" data-filter="all" data-i18n="filter_all" class="proj-filter-btn px-3 py-1.5 rounded-lg text-xs font-mono font-semibold transition-all bg-purple-500 text-white">All</button>
+          <button onclick="filterProjects('featured')" data-filter="featured" data-i18n="filter_featured" class="proj-filter-btn px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-all text-slate-400 hover:text-white">Featured</button>
+          <button onclick="filterProjects('data-ai')" data-filter="data-ai" data-i18n="filter_data_ai" class="proj-filter-btn px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-all text-slate-400 hover:text-white">Data &amp; AI</button>
+          <button onclick="filterProjects('web-auto')" data-filter="web-auto" data-i18n="filter_web_auto" class="proj-filter-btn px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-all text-slate-400 hover:text-white">Web &amp; Automation</button>
+          <button onclick="filterProjects('mobile')" data-filter="mobile" data-i18n="filter_mobile" class="proj-filter-btn px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-all text-slate-400 hover:text-white">Mobile</button>
+          <button onclick="filterProjects('sys-net')" data-filter="sys-net" data-i18n="filter_sys_net" class="proj-filter-btn px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-all text-slate-400 hover:text-white">Systems &amp; Networks</button>
+        </div>
+      </div>
+
+      <!-- Projects Grid (6 Real Projects) -->
+      <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- 1. LockIn — AI Execution & Smart Scheduling System -->
+        <article data-categories="all featured data-ai mobile" class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between border-purple-500/25 reveal">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-cyan-500/10 text-cyan-300 border border-cyan-500/25" data-i18n="p1_cat">Data &amp; AI · Mobile</span>
+              <div class="flex items-center gap-2">
+                <span data-i18n="badge_featured" class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold bg-purple-500/15 text-purple-300 border border-purple-500/30">Featured</span>
+                <a href="https://github.com/merahouten" target="_blank" rel="noopener noreferrer" class="p-1.5 rounded-lg bg-white/[0.04] hover:bg-white/10 text-slate-300 hover:text-white transition-colors" aria-label="LockIn GitHub">
+                  <i data-lucide="github" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </div>
+
+            <h3 data-i18n="p1_title" class="font-display text-lg font-bold text-white mb-2">
+              LockIn — AI Execution &amp; Smart Scheduling System
+            </h3>
+            <p data-i18n="p1_desc" class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+              Application and web platform designed as an execution system integrating an automated conversational AI agent, customizable Pomodoro sessions, and progress analytics.
+            </p>
+
+            <div class="p-3 rounded-xl bg-white/[0.025] border border-white/[0.07] mb-5">
+              <p class="text-[11px] font-mono uppercase tracking-wider text-purple-400 mb-1" data-i18n="label_problem">Problem Solved</p>
+              <p data-i18n="p1_problem" class="text-xs text-slate-300 leading-relaxed">
+                Transforms unstructured user goals and constraints into structured JSON task lists and optimized daily focus schedules to eliminate distraction and cognitive overload.
+              </p>
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <div class="flex items-center justify-between text-xs font-mono">
+              <a href="https://github.com/merahouten" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-purple-400 hover:underline">
+                <i data-lucide="code-2" class="w-3.5 h-3.5"></i>
+                <span data-i18n="link_source">Source &amp; Architecture</span>
+              </a>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-2.5 border-t border-white/[0.07]">
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">React Native</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-amber-500/10 text-amber-300 border border-amber-500/20">Claude Code</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">AI Agent</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-white/[0.04] text-slate-300 border border-white/10">JavaScript</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-white/[0.04] text-slate-300 border border-white/10">JSON</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. Automated AI Booking & Lead Qualification Agent -->
+        <article data-categories="all featured data-ai web-auto" class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between border-purple-500/25 reveal">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-emerald-500/10 text-emerald-300 border border-emerald-500/25" data-i18n="p2_cat">Data &amp; AI · Web &amp; Automation</span>
+              <div class="flex items-center gap-2">
+                <span data-i18n="badge_featured" class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold bg-purple-500/15 text-purple-300 border border-purple-500/30">Featured</span>
+                <a href="https://github.com/merahouten" target="_blank" rel="noopener noreferrer" class="p-1.5 rounded-lg bg-white/[0.04] hover:bg-white/10 text-slate-300 hover:text-white transition-colors" aria-label="Voiceflow AI GitHub">
+                  <i data-lucide="github" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </div>
+
+            <h3 data-i18n="p2_title" class="font-display text-lg font-bold text-white mb-2">
+              Automated AI Booking &amp; Lead Qualification Agent
+            </h3>
+            <p data-i18n="p2_desc" class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+              Conversational AI assistant built with Voiceflow, JavaScript, and REST APIs to collect client requirements, schedule calls, and persist conversation logs into a database.
+            </p>
+
+            <div class="p-3 rounded-xl bg-white/[0.025] border border-white/[0.07] mb-5">
+              <p class="text-[11px] font-mono uppercase tracking-wider text-purple-400 mb-1" data-i18n="label_problem">Problem Solved</p>
+              <p data-i18n="p2_problem" class="text-xs text-slate-300 leading-relaxed">
+                Reduced appointment scheduling time by 90% while automatically storing structured conversation histories in a database for follow-up and maintenance.
+              </p>
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <div class="flex items-center justify-between text-xs font-mono">
+              <a href="https://github.com/merahouten" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-purple-400 hover:underline">
+                <i data-lucide="code-2" class="w-3.5 h-3.5"></i>
+                <span data-i18n="link_source">Source &amp; Architecture</span>
+              </a>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-2.5 border-t border-white/[0.07]">
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">Voiceflow AI</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">Database Logging</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-white/[0.04] text-slate-300 border border-white/10">JavaScript</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-white/[0.04] text-slate-300 border border-white/10">REST APIs</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. Tenexa Workforce — Field Technician Mobile App -->
+        <article data-categories="all featured mobile" class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between border-purple-500/25 reveal">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-amber-500/10 text-amber-300 border border-amber-500/25" data-i18n="p3_cat">Mobile · Full-Stack</span>
+              <div class="flex items-center gap-2">
+                <span data-i18n="badge_featured" class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold bg-purple-500/15 text-purple-300 border border-purple-500/30">Featured</span>
+                <a href="https://github.com/merahouten" target="_blank" rel="noopener noreferrer" class="p-1.5 rounded-lg bg-white/[0.04] hover:bg-white/10 text-slate-300 hover:text-white transition-colors" aria-label="Tenexa Workforce GitHub">
+                  <i data-lucide="github" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </div>
+
+            <h3 data-i18n="p3_title" class="font-display text-lg font-bold text-white mb-2">
+              Tenexa Workforce — Field Technician Mobile App (Top 2 Hackathon)
+            </h3>
+            <p data-i18n="p3_desc" class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+              Full-stack mobile prototype built during the Tenexa × ISEP Paris Hackathon using React Native (Expo), TypeScript, and NativeWind, consuming REST APIs.
+            </p>
+
+            <div class="p-3 rounded-xl bg-white/[0.025] border border-white/[0.07] mb-5">
+              <p class="text-[11px] font-mono uppercase tracking-wider text-purple-400 mb-1" data-i18n="label_problem">Problem Solved</p>
+              <p data-i18n="p3_problem" class="text-xs text-slate-300 leading-relaxed">
+                Provided field technicians with fast mobile access to operational intervention data and real-time status updates via a responsive interface.
+              </p>
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <div class="flex items-center justify-between text-xs font-mono">
+              <a href="https://github.com/merahouten" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-amber-400 hover:underline">
+                <i data-lucide="trophy" class="w-3.5 h-3.5"></i>
+                <span data-i18n="p3_award">Ranked 2nd Place Overall</span>
+              </a>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-2.5 border-t border-white/[0.07]">
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">React Native</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">TypeScript</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-white/[0.04] text-slate-300 border border-white/10">Expo</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-white/[0.04] text-slate-300 border border-white/10">NativeWind</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-white/[0.04] text-slate-300 border border-white/10">REST APIs</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. E-Commerce Platform & AI Workflow Automation (No Brand Name) -->
+        <article data-categories="all web-auto data-ai" class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between reveal">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-purple-500/10 text-purple-300 border border-purple-500/25" data-i18n="p4_cat">Web &amp; Automation · Data &amp; AI</span>
+              <a href="https://github.com/merahouten" target="_blank" rel="noopener noreferrer" class="p-1.5 rounded-lg bg-white/[0.04] hover:bg-white/10 text-slate-300 hover:text-white transition-colors" aria-label="E-Commerce GitHub">
+                <i data-lucide="github" class="w-4 h-4"></i>
+              </a>
+            </div>
+
+            <h3 data-i18n="p4_title" class="font-display text-lg font-bold text-white mb-2">
+              E-Commerce Platform &amp; AI Workflow Automation
+            </h3>
+            <p data-i18n="p4_desc" class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+              Full-stack e-commerce storefront engineered for an independent online brand with automated workflows across marketing, order logistics, customer support, and AI content pipelines.
+            </p>
+
+            <div class="p-3 rounded-xl bg-white/[0.025] border border-white/[0.07] mb-5">
+              <p class="text-[11px] font-mono uppercase tracking-wider text-purple-400 mb-1" data-i18n="label_problem">Problem Solved</p>
+              <p data-i18n="p4_problem" class="text-xs text-slate-300 leading-relaxed">
+                Automated repetitive store management, visual asset creation, and customer communication tasks to enable lean solo operations.
+              </p>
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <div class="flex items-center justify-between text-xs font-mono">
+              <a href="https://github.com/merahouten" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-purple-400 hover:underline">
+                <i data-lucide="globe" class="w-3.5 h-3.5"></i>
+                <span data-i18n="link_repo">GitHub Repository</span>
+              </a>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-2.5 border-t border-white/[0.07]">
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-purple-500/10 text-purple-300 border border-purple-500/20">Full-Stack Web</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">AI Content Pipelines</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-white/[0.04] text-slate-300 border border-white/10">JavaScript</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-white/[0.04] text-slate-300 border border-white/10">Workflow Automation</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5. Multi-Site Enterprise Network & OSPF Topology -->
+        <article data-categories="all sys-net" class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between reveal">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-indigo-500/10 text-indigo-300 border border-indigo-500/25" data-i18n="p5_cat">Systems &amp; Networks</span>
+              <a href="https://github.com/merahouten" target="_blank" rel="noopener noreferrer" class="p-1.5 rounded-lg bg-white/[0.04] hover:bg-white/10 text-slate-300 hover:text-white transition-colors" aria-label="Networking GitHub">
+                <i data-lucide="github" class="w-4 h-4"></i>
+              </a>
+            </div>
+
+            <h3 data-i18n="p5_title" class="font-display text-lg font-bold text-white mb-2">
+              Multi-Site Enterprise Network &amp; OSPF Topology
+            </h3>
+            <p data-i18n="p5_desc" class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+              Enterprise network architecture designed and simulated in Cisco Packet Tracer featuring VLAN segmentation, OSPF dynamic routing, and structured IPv4 addressing plans.
+            </p>
+
+            <div class="p-3 rounded-xl bg-white/[0.025] border border-white/[0.07] mb-5">
+              <p class="text-[11px] font-mono uppercase tracking-wider text-purple-400 mb-1" data-i18n="label_problem">Problem Solved</p>
+              <p data-i18n="p5_problem" class="text-xs text-slate-300 leading-relaxed">
+                Segmented inter-department traffic for security while ensuring resilient multi-router path redundancy and diagnostic visibility across OSI layers.
+              </p>
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <div class="flex items-center justify-between text-xs font-mono">
+              <a href="https://github.com/merahouten" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-purple-400 hover:underline">
+                <i data-lucide="network" class="w-3.5 h-3.5"></i>
+                <span data-i18n="link_repo">GitHub Repository</span>
+              </a>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-2.5 border-t border-white/[0.07]">
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">Cisco Packet Tracer</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-white/[0.04] text-slate-300 border border-white/10">VLANs</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-white/[0.04] text-slate-300 border border-white/10">OSPF Routing</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-white/[0.04] text-slate-300 border border-white/10">OSI &amp; TCP/IP</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6. Containerized Web & Database Environment -->
+        <article data-categories="all sys-net web-auto data-ai" class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between border-dashed border-cyan-500/35 reveal">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-cyan-500/10 text-cyan-300 border border-cyan-500/25" data-i18n="p6_cat">Systems &amp; Data Track</span>
+              <span data-i18n="p6_status" class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">Active Progression</span>
+            </div>
+
+            <h3 data-i18n="p6_title" class="font-display text-lg font-bold text-white mb-2">
+              Containerized Web &amp; Database Environment
+            </h3>
+            <p data-i18n="p6_desc" class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+              Engineering labs combining Docker containers, relational SQL databases, Linux CLI environments, and Python data processing scripts developed across ISEP coursework and personal Data &amp; AI study.
+            </p>
+
+            <div class="p-3 rounded-xl bg-white/[0.025] border border-white/[0.07] mb-5">
+              <p class="text-[11px] font-mono uppercase tracking-wider text-cyan-400 mb-1" data-i18n="label_problem">Problem Solved</p>
+              <p data-i18n="p6_problem" class="text-xs text-slate-300 leading-relaxed">
+                Reproducible local development and database testing environments using Docker, SQL schema modeling, and automated Python scripts.
+              </p>
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <div class="flex items-center justify-between text-xs font-mono">
+              <a href="https://github.com/merahouten" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-cyan-400 hover:underline">
+                <i data-lucide="github" class="w-3.5 h-3.5"></i>
+                <span>github.com/merahouten</span>
+              </a>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-2.5 border-t border-white/[0.07]">
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">Docker</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">SQL</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">Python</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-white/[0.04] text-slate-300 border border-white/10">Linux</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-white/[0.04] text-slate-300 border border-white/10">Git</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ======================== 04 — SKILLS SECTION (DEMONSTRATED VS. ACTIVE LEARNING / TRACK) ======================== -->
+    <section id="skills" class="py-20 md:py-28 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-white/[0.06]">
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10 reveal">
+        <div>
+          <p data-i18n="sec4_num" class="font-mono text-xs uppercase tracking-widest text-purple-400 mb-2">04 — Skills</p>
+          <h2 data-i18n="sec4_title" class="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">Demonstrated Stack vs. Active Learning / Track</h2>
+          <p data-i18n="sec4_desc" class="text-sm text-slate-400 mt-2 max-w-2xl">
+            Transparent separation between competencies demonstrated in production missions and shipped projects versus technologies currently in active progression on my Data &amp; Cloud Engineering track.
+          </p>
+        </div>
+
+        <!-- Interactive Skill Maturity Filter -->
+        <div class="flex flex-wrap items-center gap-2 bg-white/[0.03] p-1.5 rounded-xl border border-white/10 w-fit">
+          <button onclick="filterSkills('all')" data-skill-filter="all" data-i18n="sfilter_all" class="skill-filter-btn px-3.5 py-1.5 rounded-lg text-xs font-mono font-semibold bg-purple-500 text-white transition-all">
+            All Skills
+          </button>
+          <button onclick="filterSkills('demonstrated')" data-skill-filter="demonstrated" class="skill-filter-btn px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-300 hover:text-white transition-all flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span data-i18n="sfilter_demo">● Demonstrated</span>
+          </button>
+          <button onclick="filterSkills('learning')" data-skill-filter="learning" class="skill-filter-btn px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-300 hover:text-white transition-all flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+            <span data-i18n="sfilter_learn">◌ Active Learning / Track</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Visual Legend Bar -->
+      <div class="mb-8 flex flex-wrap items-center gap-6 px-4 py-3 rounded-xl bg-white/[0.02] border border-white/[0.07] text-xs font-mono reveal">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded skill-demonstrated text-[11px]">● Demonstrated</span>
+          <span data-i18n="legend_demo" class="text-slate-300">= Applied in missions, production, shipped projects or engineering labs</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded skill-learning text-[11px]">◌ Active Learning / Track</span>
+          <span data-i18n="legend_learn" class="text-slate-300">= Technologies in active study toward Data Engineering, Cloud &amp; Applied AI</span>
+        </div>
+      </div>
+
+      <!-- 6 Skill Categories Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- 1. Data & AI -->
+        <div class="glass-card rounded-2xl p-6 reveal">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+              <i data-lucide="cpu" class="w-4 h-4"></i>
+            </span>
+            <div>
+              <h3 data-i18n="sgroup_1" class="text-base font-bold text-white">Data &amp; AI</h3>
+              <p data-i18n="sgroup_1_sub" class="text-[11px] font-mono text-emerald-400">Claude Code · Applied AI · Data Track</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <!-- Demonstrated -->
+            <span data-maturity="demonstrated" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-demonstrated">● Python</span>
+            <span data-maturity="demonstrated" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-demonstrated">● SQL</span>
+            <span data-maturity="demonstrated" data-i18n="sk_claude" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-demonstrated">● Claude Code (Agentic Coding)</span>
+            <span data-maturity="demonstrated" data-i18n="sk_ai_agents" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-demonstrated">● Applied AI &amp; LLM Workflows</span>
+            <span data-maturity="demonstrated" data-i18n="sk_ai_dev" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-demonstrated">● AI-Assisted Development</span>
+            <span data-maturity="demonstrated" data-i18n="sk_chatbots" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-demonstrated">● Voiceflow Chatbots</span>
+            <span data-maturity="demonstrated" data-i18n="sk_prompt" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-demonstrated">● Prompt Engineering</span>
+            <!-- Active Learning / Track -->
+            <span data-maturity="learning" data-i18n="sk_etl" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-learning">◌ ETL / ELT Pipelines</span>
+            <span data-maturity="learning" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-learning">◌ Apache Spark &amp; PySpark</span>
+            <span data-maturity="learning" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-learning">◌ Apache Airflow</span>
+            <span data-maturity="learning" data-i18n="sk_rag" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-learning">◌ RAG Architectures</span>
+            <span data-maturity="learning" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-learning">◌ Model Context Protocol (MCP)</span>
+            <span data-maturity="learning" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-learning">◌ Pandas &amp; NumPy</span>
+            <span data-maturity="learning" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-learning">◌ Power BI</span>
+            <span data-maturity="learning" data-i18n="sk_dwh" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-learning">◌ Data Warehousing</span>
+          </div>
+        </div>
+
+        <!-- 2. Software Development -->
+        <div class="glass-card rounded-2xl p-6 reveal">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="w-9 h-9 rounded-xl bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+              <i data-lucide="code" class="w-4 h-4"></i>
+            </span>
+            <div>
+              <h3 data-i18n="sgroup_2" class="text-base font-bold text-white">Software Development</h3>
+              <p data-i18n="sgroup_2_sub" class="text-[11px] font-mono text-slate-400">Web, Mobile &amp; APIs</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <!-- Demonstrated -->
+            <span data-maturity="demonstrated" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-demonstrated">● JavaScript (ES6+)</span>
+            <span data-maturity="demonstrated" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-demonstrated">● TypeScript</span>
+            <span data-maturity="demonstrated" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-demonstrated">● React Native (Expo)</span>
+            <span data-maturity="demonstrated" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-demonstrated">● HTML5 / CSS3 / Tailwind</span>
+            <span data-maturity="demonstrated" data-i18n="sk_rest" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-demonstrated">● REST API Integration</span>
+            <span data-maturity="demonstrated" data-i18n="sk_fs" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-demonstrated">● Full-Stack Web Dev</span>
+            <!-- Active Learning / Track -->
+            <span data-maturity="learning" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-learning">◌ FastAPI</span>
+            <span data-maturity="learning" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-learning">◌ React.js / Next.js</span>
+            <span data-maturity="learning" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-learning">◌ Node.js</span>
+            <span data-maturity="learning" data-i18n="sk_evals" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-learning">◌ Automated Testing &amp; AI Evals</span>
+          </div>
+        </div>
+
+        <!-- 3. Cloud & DevOps -->
+        <div class="glass-card rounded-2xl p-6 reveal">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="w-9 h-9 rounded-xl bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-400">
+              <i data-lucide="cloud-cog" class="w-4 h-4"></i>
+            </span>
+            <div>
+              <h3 data-i18n="sgroup_3" class="text-base font-bold text-white">Cloud &amp; DevOps</h3>
+              <p data-i18n="sgroup_3_sub" class="text-[11px] font-mono text-slate-400">Containers &amp; Cloud Track</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <!-- Demonstrated -->
+            <span data-maturity="demonstrated" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-demonstrated">● Docker</span>
+            <span data-maturity="demonstrated" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-demonstrated">● Git &amp; GitHub</span>
+            <span data-maturity="demonstrated" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-demonstrated">● Linux CLI</span>
+            <span data-maturity="demonstrated" data-i18n="sk_azure" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-demonstrated">● Microsoft Azure Fundamentals (AZ-900 Prep)</span>
+            <!-- Active Learning / Track -->
+            <span data-maturity="learning" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-learning">◌ AWS (S3, Lambda, Glue, CloudWatch)</span>
+            <span data-maturity="learning" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-learning">◌ CI/CD Pipelines (GitHub Actions)</span>
+            <span data-maturity="learning" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-learning">◌ Terraform (IaC)</span>
+            <span data-maturity="learning" data-i18n="sk_k8s" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-learning">◌ Kubernetes Basics</span>
+          </div>
+        </div>
+
+        <!-- 4. Systems & Networks -->
+        <div class="glass-card rounded-2xl p-6 reveal">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="w-9 h-9 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400">
+              <i data-lucide="server" class="w-4 h-4"></i>
+            </span>
+            <div>
+              <h3 data-i18n="sgroup_4" class="text-base font-bold text-white">Systems &amp; Networks</h3>
+              <p data-i18n="sgroup_4_sub" class="text-[11px] font-mono text-slate-400">Infrastructure &amp; Enterprise IT</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <!-- Demonstrated -->
+            <span data-maturity="demonstrated" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-demonstrated">● OSI Model &amp; TCP/IP</span>
+            <span data-maturity="demonstrated" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-demonstrated">● VLANs &amp; OSPF Routing</span>
+            <span data-maturity="demonstrated" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-demonstrated">● Cisco Packet Tracer</span>
+            <span data-maturity="demonstrated" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-demonstrated">● Active Directory &amp; M365 Admin</span>
+            <span data-maturity="demonstrated" data-i18n="sk_prodenv" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-demonstrated">● Production Environments</span>
+            <!-- Active Learning / Track -->
+            <span data-maturity="learning" data-i18n="sk_vpc" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-learning">◌ Cloud Networking &amp; VPCs</span>
+            <span data-maturity="learning" data-i18n="sk_dist" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-learning">◌ Distributed Systems Reliability</span>
+          </div>
+        </div>
+
+        <!-- 5. IT Service Management -->
+        <div class="glass-card rounded-2xl p-6 reveal">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="w-9 h-9 rounded-xl bg-rose-500/15 border border-rose-500/30 flex items-center justify-center text-rose-400">
+              <i data-lucide="activity" class="w-4 h-4"></i>
+            </span>
+            <div>
+              <h3 data-i18n="sgroup_5" class="text-base font-bold text-white">IT Service Management</h3>
+              <p data-i18n="sgroup_5_sub" class="text-[11px] font-mono text-purple-300">Incident Manager @ Société Générale Assurances</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <!-- Demonstrated -->
+            <span data-maturity="demonstrated" data-i18n="sk_inc" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-demonstrated">● Incident Management</span>
+            <span data-maturity="demonstrated" data-i18n="sk_itil" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-demonstrated">● ITIL® 4 Practices</span>
+            <span data-maturity="demonstrated" data-i18n="sk_mon" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-demonstrated">● Production Monitoring</span>
+            <span data-maturity="demonstrated" data-i18n="sk_rca" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-demonstrated">● Root Cause Analysis &amp; Troubleshooting</span>
+            <span data-maturity="demonstrated" data-i18n="sk_doc" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-demonstrated">● Technical Documentation &amp; SLAs</span>
+            <!-- Active Learning / Track -->
+            <span data-maturity="learning" data-i18n="sk_obs" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-learning">◌ Observability Pipelines</span>
+            <span data-maturity="learning" data-i18n="sk_triage_ai" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-learning">◌ Automated Incident Triage Agents (AIOps)</span>
+          </div>
+        </div>
+
+        <!-- 6. Photography, Video & Digital Media -->
+        <div class="glass-card rounded-2xl p-6 reveal">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="w-9 h-9 rounded-xl bg-purple-500/15 border border-purple-500/30 flex items-center justify-center text-purple-400">
+              <i data-lucide="camera" class="w-4 h-4"></i>
+            </span>
+            <div>
+              <h3 data-i18n="sgroup_6" class="text-base font-bold text-white">Photography, Video &amp; Digital Media</h3>
+              <p data-i18n="sgroup_6_sub" class="text-[11px] font-mono text-purple-300">Visual Production &amp; Community</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <!-- Demonstrated -->
+            <span data-maturity="demonstrated" data-i18n="sk_photo" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-demonstrated">● Photography (Canon R8)</span>
+            <span data-maturity="demonstrated" data-i18n="sk_video" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-demonstrated">● Videography &amp; Direction</span>
+            <span data-maturity="demonstrated" data-i18n="sk_vidprod" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-demonstrated">● Video Production (Adobe Premiere Pro)</span>
+            <span data-maturity="demonstrated" data-i18n="sk_cm" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-demonstrated">● Community Management (@parisien_parisienne_number1)</span>
+            <span data-maturity="demonstrated" data-i18n="sk_story" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-demonstrated">● Short-Form Reels &amp; Visual Storytelling</span>
+            <span data-maturity="demonstrated" data-i18n="sk_aivis" class="skill-pill px-3 py-1.5 rounded-lg text-xs font-mono skill-demonstrated">● AI Visual Generation</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================== CAREER DIRECTION ("WHERE I'M HEADING") ======================== -->
+    <section id="direction" class="py-20 md:py-28 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-white/[0.06]">
+      <div class="glass-card rounded-3xl p-7 sm:p-10 lg:p-12 border border-purple-500/25 relative overflow-hidden reveal">
+        <div class="absolute -top-24 -right-24 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <!-- Header -->
+        <div class="max-w-3xl mb-10">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/25 text-purple-300 text-xs font-mono uppercase tracking-widest mb-3">
+            <i data-lucide="trending-up" class="w-3.5 h-3.5"></i>
+            <span data-i18n="dir_eyebrow">Where I'm heading</span>
+          </div>
+          <h2 data-i18n="dir_title" class="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
+            Data Engineering &amp; Applied AI
+          </h2>
+          <p data-i18n="dir_text" class="text-slate-200 text-base sm:text-lg leading-relaxed">
+            I'm building toward Data Engineering and Applied AI roles where software engineering, cloud infrastructure and production reliability meet data-intensive systems.
+          </p>
+        </div>
+
+        <!-- 4-Step Visual Progression Roadmap -->
+        <div class="mb-10">
+          <p data-i18n="dir_pipeline_label" class="text-xs font-mono uppercase tracking-wider text-slate-400 mb-4">Technical Progression Roadmap</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+            <!-- Step 1 -->
+            <div class="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 relative">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-mono font-bold text-emerald-400">01. CURRENT</span>
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+              </div>
+              <h3 data-i18n="step1_title" class="text-base font-bold text-white">Incident Management</h3>
+              <p data-i18n="step1_desc" class="text-xs text-slate-300 mt-1">
+                Service reliability at Société Générale Assurances, ITIL® 4 workflows, incident lifecycle &amp; team coordination.
+              </p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="p-4 rounded-2xl bg-emerald-500/[0.07] border border-emerald-500/25 relative">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-mono font-bold text-emerald-300">02. FOUNDATION</span>
+                <i data-lucide="server" class="w-4 h-4 text-emerald-300"></i>
+              </div>
+              <h3 data-i18n="step2_title" class="text-base font-bold text-white">Production &amp; Systems</h3>
+              <p data-i18n="step2_desc" class="text-xs text-slate-300 mt-1">
+                Linux, Docker, SQL, Python scripting, Claude Code &amp; production diagnostics.
+              </p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="p-4 rounded-2xl bg-cyan-500/10 border border-dashed border-cyan-400/40 relative">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-mono font-bold text-cyan-300">03. TARGET TRACK</span>
+                <i data-lucide="database" class="w-4 h-4 text-cyan-300"></i>
+              </div>
+              <h3 data-i18n="step3_title" class="text-base font-bold text-white">Data Engineering</h3>
+              <p data-i18n="step3_desc" class="text-xs text-slate-300 mt-1">
+                Data pipelines, ETL / ELT workflows, SQL data modeling &amp; cloud data platforms.
+              </p>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="p-4 rounded-2xl bg-purple-500/10 border border-dashed border-purple-400/40 relative">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-mono font-bold text-purple-300">04. TARGET TRACK</span>
+                <i data-lucide="bot" class="w-4 h-4 text-purple-300"></i>
+              </div>
+              <h3 data-i18n="step4_title" class="text-base font-bold text-white">Applied AI</h3>
+              <p data-i18n="step4_desc" class="text-xs text-slate-300 mt-1">
+                AI agents, intelligent automation &amp; observable production AI systems.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Target Specialization Pills -->
+        <div>
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <span data-i18n="dir_targets_label" class="text-xs font-mono uppercase tracking-wider text-cyan-300">Target Specialization Areas (Career Objectives)</span>
+            <span data-i18n="dir_targets_note" class="text-[11px] font-mono text-slate-400">Areas of active specialization &amp; upcoming missions</span>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span data-i18n="t_area_1" class="px-3.5 py-2 rounded-xl text-xs font-mono bg-white/[0.04] text-slate-200 border border-white/10">Data Pipelines</span>
+            <span class="px-3.5 py-2 rounded-xl text-xs font-mono bg-white/[0.04] text-slate-200 border border-white/10">ETL / ELT</span>
+            <span data-i18n="t_area_3" class="px-3.5 py-2 rounded-xl text-xs font-mono bg-white/[0.04] text-slate-200 border border-white/10">Cloud Data Platforms</span>
+            <span data-i18n="t_area_4" class="px-3.5 py-2 rounded-xl text-xs font-mono bg-white/[0.04] text-slate-200 border border-white/10">AI Agents</span>
+            <span data-i18n="t_area_5" class="px-3.5 py-2 rounded-xl text-xs font-mono bg-white/[0.04] text-slate-200 border border-white/10">Automation</span>
+            <span data-i18n="t_area_6" class="px-3.5 py-2 rounded-xl text-xs font-mono bg-white/[0.04] text-slate-200 border border-white/10">Production AI Systems</span>
+            <span data-i18n="t_area_7" class="px-3.5 py-2 rounded-xl text-xs font-mono bg-white/[0.04] text-slate-200 border border-white/10">Monitoring &amp; Observability</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== 05 — CONTACT SECTION ======================== -->
+    <section id="contact" class="py-20 md:py-28 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-white/[0.06]">
+      <div class="max-w-3xl mb-10 reveal">
+        <p data-i18n="sec5_num" class="font-mono text-xs uppercase tracking-widest text-purple-400 mb-2">05 — Contact</p>
+        <h2 data-i18n="sec5_title" class="font-display text-3xl sm:text-5xl font-bold text-white tracking-tight mb-4">
+          Let's build something useful.
+        </h2>
+        <p data-i18n="contact_sub" class="text-slate-300 text-base sm:text-lg leading-relaxed mb-8">
+          Open to technical opportunities and missions in Data Engineering, Applied AI, Cloud, Software and IT systems.
+        </p>
+
+        <!-- Primary Contact Buttons & Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+          <a href="mailto:merahouten@gmail.com" class="glass-card rounded-2xl p-5 flex items-center gap-4 group">
+            <span class="w-11 h-11 rounded-xl bg-purple-500/15 border border-purple-500/30 flex items-center justify-center text-purple-300 group-hover:scale-105 transition-transform">
+              <i data-lucide="mail" class="w-5 h-5"></i>
+            </span>
+            <div>
+              <p data-i18n="contact_btn_email" class="text-sm font-bold text-white">Email Me</p>
+              <p class="text-xs font-mono text-slate-400">merahouten@gmail.com</p>
+            </div>
+          </a>
+
+          <a href="https://www.linkedin.com/in/mehdi-erahouten-a573b02ba" target="_blank" rel="noopener noreferrer" class="glass-card rounded-2xl p-5 flex items-center gap-4 group">
+            <span class="w-11 h-11 rounded-xl bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-300 group-hover:scale-105 transition-transform">
+              <i data-lucide="linkedin" class="w-5 h-5"></i>
+            </span>
+            <div>
+              <p class="text-sm font-bold text-white">LinkedIn</p>
+              <p class="text-xs font-mono text-slate-400">in/mehdi-erahouten</p>
+            </div>
+          </a>
+
+          <a href="https://github.com/merahouten" target="_blank" rel="noopener noreferrer" class="glass-card rounded-2xl p-5 flex items-center gap-4 group">
+            <span class="w-11 h-11 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-300 group-hover:scale-105 transition-transform">
+              <i data-lucide="github" class="w-5 h-5"></i>
+            </span>
+            <div>
+              <p class="text-sm font-bold text-white">GitHub</p>
+              <p class="text-xs font-mono text-slate-400">github.com/merahouten</p>
+            </div>
+          </a>
+        </div>
+
+        <button onclick="copyEmailAddress()" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-mono text-xs bg-white/[0.03] hover:bg-white/[0.07] text-slate-300 border border-white/10 transition-all">
+          <i data-lucide="copy" class="w-3.5 h-3.5 text-purple-400"></i>
+          <span id="copy-email-text">Copy email: merahouten@gmail.com</span>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================== FOOTER ======================== -->
+  <footer class="border-t border-white/[0.08] bg-obsidian/90 py-10 relative z-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400">
+      <div>
+        <span class="text-white font-semibold">Mehdi Erahouten</span> — <span data-i18n="footer_tagline">Incident Manager @ Société Générale Assurances · Data &amp; AI Engineering Track</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-4">
+        <button onclick="copyRawHTML()" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-purple-500/15 hover:bg-purple-500/25 text-purple-300 border border-purple-500/30 transition-all">
+          <i data-lucide="code" class="w-3.5 h-3.5"></i>
+          <span id="copy-html-btn-text">Copy Raw HTML</span>
+        </button>
+        <a href="https://github.com/merahouten/Mehdi-ERAHOUTEN-portfolio" target="_blank" rel="noopener noreferrer" class="hover:text-purple-400 transition-colors">Repository</a>
+        <a href="https://github.com/merahouten" target="_blank" rel="noopener noreferrer" class="hover:text-purple-400 transition-colors">GitHub</a>
+        <a href="https://www.linkedin.com/in/mehdi-erahouten-a573b02ba" target="_blank" rel="noopener noreferrer" class="hover:text-purple-400 transition-colors">LinkedIn</a>
+        <a href="mailto:merahouten@gmail.com" class="hover:text-purple-400 transition-colors">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================== PRINTABLE CV / RESUME MODAL ======================== -->
+  <div id="resume-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-md p-4 overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="cv-modal-title">
+    <div class="glass-card rounded-2xl max-w-3xl w-full p-6 sm:p-8 border border-white/15 shadow-2xl my-8 relative max-h-[90vh] overflow-y-auto">
+
+      <!-- Modal Top Controls -->
+      <div class="flex flex-wrap items-center justify-between gap-3 pb-4 mb-6 border-b border-white/10">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-purple-400"></span>
+          <span id="cv-modal-title" class="font-mono text-xs text-slate-300">Mehdi_Erahouten_CV.pdf</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="window.print()" class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-lg text-xs font-mono font-semibold text-white btn-purple-glow">
+            <i data-lucide="printer" class="w-3.5 h-3.5"></i>
+            <span data-i18n="cv_print_btn">Print / Save PDF</span>
+          </button>
+          <button onclick="closeResumeModal()" class="p-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white" aria-label="Close modal">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Printable CV Content -->
+      <div id="cv-printable-area" class="space-y-5 text-sm text-slate-200">
+        <div class="border-b border-white/10 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <h2 class="text-2xl font-bold text-white">Mehdi ERAHOUTEN</h2>
+            <p data-i18n="cv_headline" class="font-mono text-xs text-purple-300">Incident Manager @ Société Générale Assurances | Data &amp; AI Engineering Track</p>
+          </div>
+          <div class="text-xs font-mono text-slate-400 space-y-0.5 sm:text-right">
+            <p>Paris, France</p>
+            <p>merahouten@gmail.com</p>
+            <p>github.com/merahouten</p>
+          </div>
+        </div>
+
+        <!-- Profile Summary -->
+        <div>
+          <p data-i18n="cv_summary" class="text-xs text-slate-300 leading-relaxed">
+            Incident Manager at Société Générale Assurances and IT engineering student at ISEP Paris (Bachelor IPN), building expertise across software development, Claude Code / Applied AI workflows, systems and production environments while developing a specialization in Data Engineering and Cloud Infrastructure.
+          </p>
+        </div>
+
+        <!-- Professional Experience -->
+        <div>
+          <h3 data-i18n="cv_exp_heading" class="text-xs font-mono uppercase tracking-wider text-purple-400 mb-2">Professional Experience &amp; Missions</h3>
+          <div class="space-y-3">
+            <div>
+              <div class="flex justify-between font-semibold text-white text-xs sm:text-sm">
+                <span data-i18n="cv_exp1_title">Incident Manager — IT Production &amp; Service Management</span>
+                <span class="font-mono text-xs text-slate-400">Société Générale Assurances · Paris, France (2026 – Present)</span>
+              </div>
+              <p data-i18n="cv_exp1_desc" class="text-xs text-slate-300 mt-0.5">
+                End-to-end incident lifecycle coordination across enterprise production systems, production monitoring, anomaly triage, cross-team technical coordination, ITIL® 4 practices, SLA tracking, and documentation.
+              </p>
+            </div>
+
+            <div>
+              <div class="flex justify-between font-semibold text-white text-xs sm:text-sm">
+                <span data-i18n="cv_exp2_title">Mobile &amp; AI Application Developer — LockIn (Independent Product Mission)</span>
+                <span class="font-mono text-xs text-slate-400">Paris, France (Aug 2025 – Present)</span>
+              </div>
+              <p data-i18n="cv_exp2_desc" class="text-xs text-slate-300 mt-0.5">
+                Designed and built an AI-powered execution platform integrating a conversational AI agent and Claude Code workflows that transform user goals into prioritized tasks and focus schedules.
+              </p>
+            </div>
+
+            <div>
+              <div class="flex justify-between font-semibold text-white text-xs sm:text-sm">
+                <span data-i18n="cv_exp3_title">Finalist (2nd Place) — Full-Stack &amp; Mobile Developer (Tenexa × ISEP Paris Hackathon)</span>
+                <span class="font-mono text-xs text-slate-400">Paris, France (Sept 2025 – Jan 2026)</span>
+              </div>
+              <p data-i18n="cv_exp3_desc" class="text-xs text-slate-300 mt-0.5">
+                Co-developed a full-stack React Native (Expo) and TypeScript field-technician mobile application consuming REST APIs with NativeWind UI (Ranked Top 2).
+              </p>
+            </div>
+
+            <div>
+              <div class="flex justify-between font-semibold text-white text-xs sm:text-sm">
+                <span data-i18n="cv_exp4_title">Web Developer &amp; E-Commerce Founder — Independent E-Commerce Brand</span>
+                <span class="font-mono text-xs text-slate-400">Paris, France (Aug 2023 – Present)</span>
+              </div>
+              <p data-i18n="cv_exp4_desc" class="text-xs text-slate-300 mt-0.5">
+                Full e-commerce platform development with automated marketing, logistics, customer workflows, and generative AI content pipelines.
+              </p>
+            </div>
+
+            <div>
+              <div class="flex justify-between font-semibold text-white text-xs sm:text-sm">
+                <span data-i18n="cv_exp5_title">Photographer, Videographer &amp; Community Manager — Parisien_Parisienne_Number1</span>
+                <span class="font-mono text-xs text-slate-400">Paris, France (Dec 2022 – Present)</span>
+              </div>
+              <p data-i18n="cv_exp5_desc" class="text-xs text-slate-300 mt-0.5">
+                Urban photography (Canon R8), commercial video production (Adobe Premiere Pro), community management, and integration of a Voiceflow AI booking chatbot (-90% scheduling time with database logging).
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education & Verified Training -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t border-white/10">
+          <div>
+            <h3 data-i18n="cv_edu_heading" class="text-xs font-mono uppercase tracking-wider text-purple-400 mb-1.5">Education</h3>
+            <p class="text-xs font-semibold text-white">ISEP Paris — École d'ingénieurs du numérique</p>
+            <p class="text-xs text-slate-300">Bachelor Informatique et Projets Numériques (IPN) · 2025 – 2028</p>
+            <p class="text-xs font-semibold text-white mt-2">Baccalauréat Scientifique</p>
+            <p class="text-xs text-slate-300">Mathematics Specialization</p>
+
+            <h3 data-i18n="cv_lang_heading" class="text-xs font-mono uppercase tracking-wider text-purple-400 mt-3 mb-1">Languages</h3>
+            <p data-i18n="cv_langs" class="text-xs text-slate-300">French (C1) · English (C1) · Arabic (Native)</p>
+          </div>
+
+          <div>
+            <h3 data-i18n="cv_cert_heading" class="text-xs font-mono uppercase tracking-wider text-purple-400 mb-1.5">Certifications &amp; Verified Training</h3>
+            <ul class="text-xs text-slate-300 space-y-1">
+              <li>• ITIL® 4 Foundation in Practice (LinkedIn · Jun 2026)</li>
+              <li>• L'essentiel de Git (LinkedIn · Feb 2026)</li>
+              <li>• Découvrir le vibe coding : Coder avec l'aide de l'IA (LinkedIn · Feb 2026)</li>
+              <li>• Microsoft Azure Fundamentals AZ-900 Exam Prep Training (LinkedIn · Feb 2026)</li>
+              <li>• Gérer les techniciens / techniciennes (LinkedIn · Feb 2026)</li>
+              <li>• Les fondements de la gestion administrative (LinkedIn · Feb 2026)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======================== VANILLA JAVASCRIPT ======================== -->
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // ======================== PORTRAIT IMAGE LOADER & BASE64 EMBEDDER ========================
+    const portraitImg = document.getElementById('hero-portrait-img');
+    const portraitSvgFallback = document.getElementById('portrait-svg-fallback');
+    const portraitUploadInput = document.getElementById('portrait-upload-input');
+
+    // Load saved portrait from localStorage if available
+    try {
+      const savedPortraitDataUrl = localStorage.getItem('mehdi_portfolio_portrait_b64');
+      if (savedPortraitDataUrl && savedPortraitDataUrl.startsWith('data:image/')) {
+        portraitImg.src = savedPortraitDataUrl;
+        portraitImg.classList.remove('hidden');
+        portraitSvgFallback.classList.add('hidden');
+      }
+    } catch (e) {
+      // Ignore storage access errors in restricted frames
+    }
+
+    function handlePortraitFallback() {
+      // Show crisp studio suit SVG fallback if unnamed__1_-removebg-preview.png isn't in the same directory yet
+      portraitImg.classList.add('hidden');
+      portraitSvgFallback.classList.remove('hidden');
+    }
+
+    function triggerPortraitUpload() {
+      portraitUploadInput.click();
+    }
+
+    portraitUploadInput.addEventListener('change', function (e) {
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function (ev) {
+        const dataUrl = ev.target.result;
+        portraitImg.src = dataUrl;
+        portraitImg.setAttribute('src', dataUrl);
+        portraitImg.classList.remove('hidden');
+        portraitSvgFallback.classList.add('hidden');
+        try {
+          localStorage.setItem('mehdi_portfolio_portrait_b64', dataUrl);
+        } catch (err) {
+          // Ignore quota errors
+        }
+        const label = document.getElementById('embed-photo-label');
+        if (label) {
+          label.textContent = currentLang === 'en' ? 'Photo Embedded!' : 'Photo Intégrée !';
+          setTimeout(() => {
+            label.textContent = currentLang === 'en' ? 'Embed Photo' : 'Intégrer Photo';
+          }, 2500);
+        }
+      };
+      reader.readAsDataURL(file);
+    });
+
+    // ======================== DYNAMIC TYPEWRITER EFFECT IN HERO ========================
+    const typewriterRoles = {
+      en: [
+        "Incident Manager",
+        "Data & AI Engineering Track",
+        "Cloud & Automation Builder",
+        "Applied AI & Claude Code"
+      ],
+      fr: [
+        "Incident Manager",
+        "Trajectoire Data & AI Engineering",
+        "Cloud & Automatisation",
+        "IA Appliquée & Claude Code"
+      ]
+    };
+
+    let currentLang = 'en';
+    let roleIdx = 0;
+    let charIdx = 0;
+    let isDeleting = false;
+    const typewriterEl = document.getElementById('typewriter-text');
+
+    function runTypewriter() {
+      const roles = typewriterRoles[currentLang] || typewriterRoles.en;
+      const currentPhrase = roles[roleIdx % roles.length];
+
+      if (isDeleting) {
+        charIdx--;
+      } else {
+        charIdx++;
+      }
+
+      if (typewriterEl) {
+        typewriterEl.textContent = currentPhrase.substring(0, charIdx);
+      }
+
+      let delay = isDeleting ? 38 : 75;
+
+      if (!isDeleting && charIdx === currentPhrase.length) {
+        delay = 2100;
+        isDeleting = true;
+      } else if (isDeleting && charIdx === 0) {
+        isDeleting = false;
+        roleIdx = (roleIdx + 1) % roles.length;
+        delay = 340;
+      }
+
+      setTimeout(runTypewriter, delay);
+    }
+
+    setTimeout(runTypewriter, 1200);
+
+    // ======================== TWO-ROW SVG ICON MARQUEE DATA ========================
+    const marqueeRow1Items = [
+      {
+        name: "Python",
+        svg: `<svg viewBox="0 0 24 24" class="w-8 h-8" fill="none">
+          <path d="M11.9 2C7.8 2 8.2 3.8 8.2 3.8V5.8H12.1V6.5H6.5C6.5 6.5 4 6.2 4 10.2C4 14.2 6.2 14 6.2 14H7.5V12.1C7.5 12.1 7.4 9.9 9.7 9.9H14C14 9.9 15.9 9.9 15.9 8V4.2C15.9 4.2 16.2 2 11.9 2Z" fill="#387EB8"/>
+          <path d="M12.1 22C16.2 22 15.8 20.2 15.8 20.2V18.2H11.9V17.5H17.5C17.5 17.5 20 17.8 20 13.8C20 9.8 17.8 10 17.8 10H16.5V11.9C16.5 11.9 16.6 14.1 14.3 14.1H10C10 14.1 8.1 14.1 8.1 16V19.8C8.1 19.8 7.8 22 12.1 22Z" fill="#FFE052"/>
+          <circle cx="10" cy="4.1" r="0.8" fill="#FFF"/>
+          <circle cx="14" cy="19.9" r="0.8" fill="#387EB8"/>
+        </svg>`
+      },
+      {
+        name: "Claude Code",
+        svg: `<svg viewBox="0 0 24 24" class="w-8 h-8" fill="none">
+          <rect x="3" y="4" width="18" height="16" rx="3.5" stroke="#D97757" stroke-width="1.8" fill="#D97757" fill-opacity="0.14"/>
+          <path d="M7.5 9.5L10.5 12L7.5 14.5" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12.5 14.5H16.5" stroke="#D97757" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="17" cy="7.5" r="1.2" fill="#F59E0B"/>
+        </svg>`
+      },
+      {
+        name: "PostgreSQL",
+        svg: `<svg viewBox="0 0 24 24" class="w-8 h-8" fill="none">
+          <ellipse cx="12" cy="6.5" rx="7" ry="3" stroke="#336791" stroke-width="1.8" fill="#336791" fill-opacity="0.24"/>
+          <path d="M5 6.5V12C5 13.66 8.13 15 12 15C15.87 15 19 13.66 19 12V6.5" stroke="#60A5FA" stroke-width="1.8"/>
+          <path d="M5 12V17.5C5 19.16 8.13 20.5 12 20.5C15.87 20.5 19 19.16 19 17.5V12" stroke="#336791" stroke-width="1.8"/>
+        </svg>`
+      },
+      {
+        name: "Docker",
+        svg: `<svg viewBox="0 0 24 24" class="w-8 h-8" fill="none">
+          <rect x="5" y="10" width="2.6" height="2.4" rx="0.4" fill="#2496ED"/>
+          <rect x="8.2" y="10" width="2.6" height="2.4" rx="0.4" fill="#2496ED"/>
+          <rect x="11.4" y="10" width="2.6" height="2.4" rx="0.4" fill="#2496ED"/>
+          <rect x="8.2" y="7" width="2.6" height="2.4" rx="0.4" fill="#38BDF8"/>
+          <rect x="11.4" y="7" width="2.6" height="2.4" rx="0.4" fill="#38BDF8"/>
+          <path d="M3 13.2H16.8C17.9 13.2 18.8 12.5 19.4 11.6C20.3 11.9 21.1 12.6 21.2 13.6C19.8 14.8 18.2 15 16.9 15C15.9 18 12.8 19.5 8.8 19.5C5.2 19.5 3.2 17.2 3 13.2Z" fill="#2496ED"/>
+        </svg>`
+      },
+      {
+        name: "Git",
+        svg: `<svg viewBox="0 0 24 24" class="w-8 h-8" fill="none">
+          <path d="M21.4 11.1L12.9 2.6C12.4 2.1 11.6 2.1 11.1 2.6L9.3 4.4L11.6 6.7C12.2 6.5 12.9 6.8 13.2 7.4C13.5 8 13.3 8.7 12.8 9.1L15 11.3C15.6 11.1 16.3 11.4 16.6 12C17 12.7 16.6 13.6 15.8 13.9C15 14.2 14.2 13.7 14 12.9C13.9 12.5 14 12.1 14.2 11.8L12.1 9.7V15.1C12.7 15.4 13 16.1 12.7 16.8C12.4 17.5 11.6 17.8 10.9 17.5C10.2 17.2 9.9 16.4 10.2 15.7C10.4 15.4 10.6 15.2 10.9 15.1V9.6C10.3 9.3 10 8.5 10.3 7.8C10.4 7.5 10.6 7.3 10.8 7.2L8.6 5L2.6 11C2.1 11.5 2.1 12.3 2.6 12.8L11.1 21.3C11.6 21.8 12.4 21.8 12.9 21.3L21.4 12.8C21.9 12.3 21.9 11.6 21.4 11.1Z" fill="#F05032"/>
+        </svg>`
+      },
+      {
+        name: "GitHub",
+        svg: `<svg viewBox="0 0 24 24" class="w-8 h-8" fill="none">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.475 2 2 6.588 2 12.253C2 16.782 4.862 20.624 8.838 21.98C9.338 22.075 9.52 21.758 9.52 21.485C9.52 21.24 9.512 20.59 9.508 19.728C6.726 20.347 6.14 18.353 6.14 18.353C5.685 17.168 5.028 16.852 5.028 16.852C4.12 16.216 5.098 16.229 5.098 16.229C6.103 16.301 6.631 17.287 6.631 17.287C7.523 18.854 8.972 18.401 9.542 18.139C9.633 17.476 9.891 17.023 10.177 16.767C7.956 16.508 5.62 15.628 5.62 11.698C5.62 10.578 6.01 9.663 6.65 8.946C6.546 8.686 6.203 7.642 6.748 6.23C6.748 6.23 7.588 5.954 9.498 7.281C10.296 7.053 11.15 6.94 12 6.935C12.85 6.94 13.704 7.053 14.504 7.281C16.412 5.954 17.25 6.23 17.25 6.23C17.797 7.642 17.454 8.686 17.35 8.946C17.992 9.663 18.38 10.578 18.38 11.698C18.38 15.638 16.04 16.505 13.813 16.759C14.172 17.077 14.492 17.704 14.492 18.664C14.492 20.039 14.48 21.147 14.48 21.485C14.48 21.76 14.66 22.08 15.168 21.979C19.138 20.62 22 16.78 22 12.253C22 6.588 17.523 2 12 2Z" fill="#E2E8F0"/>
+        </svg>`
+      },
+      {
+        name: "Linux",
+        svg: `<svg viewBox="0 0 24 24" class="w-8 h-8" fill="none">
+          <path d="M12 3C9.8 3 8.5 4.8 8.5 7.5C8.5 9.2 7 11.5 6.5 14C6 16.5 7.2 19.5 9.5 20.2H14.5C16.8 19.5 18 16.5 17.5 14C17 11.5 15.5 9.2 15.5 7.5C15.5 4.8 14.2 3 12 3Z" fill="#FACC15"/>
+          <ellipse cx="12" cy="14.2" rx="3.4" ry="4.4" fill="#FFF"/>
+          <circle cx="10.8" cy="6.8" r="0.8" fill="#0F172A"/>
+          <circle cx="13.2" cy="6.8" r="0.8" fill="#0F172A"/>
+          <path d="M10.5 8.5L12 9.6L13.5 8.5" stroke="#F97316" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>`
+      },
+      {
+        name: "JavaScript",
+        svg: `<svg viewBox="0 0 24 24" class="w-8 h-8" fill="none">
+          <rect x="3" y="3" width="18" height="18" rx="2.5" fill="#F7DF1E"/>
+          <path d="M10.6 15.5V10.5H12.2V15.7C12.2 17.2 11.2 17.9 9.8 17.9C8.7 17.9 8 17.3 7.7 16.5L9 15.7C9.2 16.1 9.4 16.4 9.9 16.4C10.3 16.4 10.6 16.1 10.6 15.5ZM16.3 17.9C14.9 17.9 14 17.2 13.6 16.2L14.9 15.4C15.2 16 15.6 16.4 16.3 16.4C16.9 16.4 17.3 16.1 17.3 15.7C17.3 15.2 16.9 15 16 14.6L15.5 14.4C14.3 13.9 13.7 13.2 13.7 12.1C13.7 10.9 14.6 10.1 16.1 10.1C17.2 10.1 17.9 10.5 18.4 11.4L17.2 12.2C16.9 11.7 16.5 11.5 16.1 11.5C15.6 11.5 15.3 11.8 15.3 12.1C15.3 12.5 15.6 12.7 16.4 13.1L16.9 13.3C18.3 13.9 19 14.5 19 15.7C19 17.1 17.9 17.9 16.3 17.9Z" fill="#0F172A"/>
+        </svg>`
+      },
+      {
+        name: "TypeScript",
+        svg: `<svg viewBox="0 0 24 24" class="w-8 h-8" fill="none">
+          <rect x="3" y="3" width="18" height="18" rx="2.5" fill="#3178C6"/>
+          <path d="M8.2 11.5H6V10.1H12V11.5H9.8V17.8H8.2V11.5ZM16.1 17.9C14.7 17.9 13.7 17.2 13.3 16.3L14.6 15.5C14.9 16.1 15.4 16.5 16.1 16.5C16.8 16.5 17.2 16.2 17.2 15.8C17.2 15.3 16.7 15.1 15.8 14.7L15.3 14.5C14.1 14 13.5 13.3 13.5 12.2C13.5 11 14.4 10.1 15.9 10.1C17 10.1 17.8 10.5 18.3 11.4L17.1 12.2C16.8 11.7 16.4 11.5 15.9 11.5C15.4 11.5 15.1 11.8 15.1 12.1C15.1 12.5 15.4 12.7 16.2 13.1L16.7 13.3C18.1 13.9 18.8 14.5 18.8 15.7C18.8 17.1 17.7 17.9 16.1 17.9Z" fill="#FFF"/>
+        </svg>`
+      },
+      {
+        name: "React",
+        svg: `<svg viewBox="0 0 24 24" class="w-8 h-8" fill="none">
+          <circle cx="12" cy="12" r="2" fill="#61DAFB"/>
+          <ellipse cx="12" cy="12" rx="9" ry="3.6" stroke="#61DAFB" stroke-width="1.5"/>
+          <ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(60 12 12)" stroke="#61DAFB" stroke-width="1.5"/>
+          <ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(120 12 12)" stroke="#61DAFB" stroke-width="1.5"/>
+        </svg>`
+      },
+      {
+        name: "React Native",
+        svg: `<svg viewBox="0 0 24 24" class="w-8 h-8" fill="none">
+          <rect x="6.5" y="2.5" width="11" height="19" rx="2.2" stroke="#38BDF8" stroke-width="1.6"/>
+          <circle cx="12" cy="11.5" r="1.4" fill="#38BDF8"/>
+          <ellipse cx="12" cy="11.5" rx="4.2" ry="1.8" transform="rotate(35 12 11.5)" stroke="#38BDF8" stroke-width="1.2"/>
+          <ellipse cx="12" cy="11.5" rx="4.2" ry="1.8" transform="rotate(-35 12 11.5)" stroke="#38BDF8" stroke-width="1.2"/>
+        </svg>`
+      },
+      {
+        name: "FastAPI",
+        svg: `<svg viewBox="0 0 24 24" class="w-8 h-8" fill="none">
+          <circle cx="12" cy="12" r="9" fill="#05998B"/>
+          <path d="M13 6.5L8.2 13H12L11 17.5L15.8 11H12L13 6.5Z" fill="#FFF"/>
+        </svg>`
+      },
+      {
+        name: "Azure",
+        svg: `<svg viewBox="0 0 24 24" class="w-8 h-8" fill="none">
+          <path d="M13.2 3.5L6.5 18.2H11.2L13.8 12.6L16.8 19.5H6L4 19.5L10.8 3.5H13.2Z" fill="#0089D6"/>
+          <path d="M13.2 3.5L20 19.5H14.2L11.2 13L13.2 3.5Z" fill="#38BDF8"/>
+        </svg>`
+      },
+      {
+        name: "AWS",
+        svg: `<svg viewBox="0 0 24 24" class="w-8 h-8" fill="none">
+          <path d="M5.5 15.5C9.2 18.2 14.8 18.2 18.5 15.5" stroke="#FF9900" stroke-width="2" stroke-linecap="round"/>
+          <path d="M17.2 14.8L19.2 15.2L18.4 17.1" stroke="#FF9900" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="5.2" y="12.5" fill="#F8FAFC" font-family="Inter, sans-serif" font-weight="800" font-size="6.8">aws</text>
+        </svg>`
+      },
+      {
+        name: "Power BI",
+        svg: `<svg viewBox="0 0 24 24" class="w-8 h-8" fill="none">
+          <rect x="5" y="12" width="3.2" height="7" rx="1" fill="#FDE047"/>
+          <rect x="10.4" y="8.5" width="3.2" height="10.5" rx="1" fill="#FACC15"/>
+          <rect x="15.8" y="5" width="3.2" height="14" rx="1" fill="#EAB308"/>
+        </svg>`
+      }
+    ];
+
+    const marqueeRow2Items = [
+      {
+        name: "AI Agents",
+        svg: `<svg viewBox="0 0 24 24" class="w-8 h-8" fill="none">
+          <rect x="5" y="7" width="14" height="11" rx="3" stroke="#10B981" stroke-width="1.8" fill="#10B981" fill-opacity="0.14"/>
+          <path d="M12 4V7" stroke="#10B981" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="9.5" cy="12" r="1.3" fill="#34D399"/>
+          <circle cx="14.5" cy="12" r="1.3" fill="#34D399"/>
+          <path d="M9.5 15.2H14.5" stroke="#10B981" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>`
+      },
+      {
+        name: "Premiere Pro",
+        svg: `<svg viewBox="0 0 24 24" class="w-8 h-8" fill="none">
+          <rect x="3" y="3" width="18" height="18" rx="3.2" fill="#2A0845" stroke="#9999FF" stroke-width="1.5"/>
+          <text x="6" y="15.5" fill="#9999FF" font-family="Inter, sans-serif" font-weight="800" font-size="9.5">Pr</text>
+        </svg>`
+      },
+      {
+        name: "Photography",
+        svg: `<svg viewBox="0 0 24 24" class="w-8 h-8" fill="none">
+          <path d="M4 8.5C4 7.4 4.9 6.5 6 6.5H7.6L9 4.5H15L16.4 6.5H18C19.1 6.5 20 7.4 20 8.5V17.5C20 18.6 19.1 19.5 18 19.5H6C4.9 19.5 4 18.6 4 17.5V8.5Z" stroke="#F43F5E" stroke-width="1.7" fill="#F43F5E" fill-opacity="0.14"/>
+          <circle cx="12" cy="13" r="3.4" stroke="#FB7185" stroke-width="1.7"/>
+        </svg>`
+      },
+      {
+        name: "Voiceflow",
+        svg: `<svg viewBox="0 0 24 24" class="w-8 h-8" fill="none">
+          <path d="M5 7L10.2 17H13.8L19 7H15.8L12 14.5L8.2 7H5Z" fill="#818CF8"/>
+        </svg>`
+      },
+      {
+        name: "Tailwind CSS",
+        svg: `<svg viewBox="0 0 24 24" class="w-8 h-8" fill="none">
+          <path d="M12 6.5C9.3 6.5 7.7 7.8 7 10.5C8 9.2 9.2 8.7 10.5 9C11.3 9.2 11.8 9.8 12.4 10.4C13.4 11.4 14.6 12.5 17 12.5C19.7 12.5 21.3 11.2 22 8.5C21 9.8 19.8 10.3 18.5 10C17.7 9.8 17.2 9.2 16.6 8.6C15.6 7.6 14.4 6.5 12 6.5ZM7 12.5C4.3 12.5 2.7 13.8 2 16.5C3 15.2 4.2 14.7 5.5 15C6.3 15.2 6.8 15.8 7.4 16.4C8.4 17.4 9.6 18.5 12 18.5C14.7 18.5 16.3 17.2 17 14.5C16 15.8 14.8 16.3 13.5 16C12.7 15.8 12.2 15.2 11.6 14.6C10.6 13.6 9.4 12.5 7 12.5Z" fill="#38BDF8"/>
+        </svg>`
+      },
+      {
+        name: "Node.js",
+        svg: `<svg viewBox="0 0 24 24" class="w-8 h-8" fill="none">
+          <path d="M12 3L19.8 7.5V16.5L12 21L4.2 16.5V7.5L12 3Z" stroke="#22C55E" stroke-width="1.8" fill="#22C55E" fill-opacity="0.15"/>
+          <text x="7.5" y="14.2" fill="#4ADE80" font-family="JetBrains Mono, monospace" font-weight="700" font-size="6.5">JS</text>
+        </svg>`
+      },
+      {
+        name: "Apache Spark",
+        svg: `<svg viewBox="0 0 24 24" class="w-8 h-8" fill="none">
+          <path d="M12 3L14.4 8.8L20.5 9.3L15.8 13.3L17.3 19.4L12 16.1L6.7 19.4L8.2 13.3L3.5 9.3L9.6 8.8L12 3Z" stroke="#F97316" stroke-width="1.7" fill="#F97316" fill-opacity="0.2"/>
+        </svg>`
+      },
+      {
+        name: "Airflow",
+        svg: `<svg viewBox="0 0 24 24" class="w-8 h-8" fill="none">
+          <path d="M12 12L6 6C8.5 4 11.5 5 12 8.5V12Z" fill="#0ea5e9"/>
+          <path d="M12 12L18 6C20 8.5 19 11.5 15.5 12H12Z" fill="#10b981"/>
+          <path d="M12 12L18 18C15.5 20 12.5 19 12 15.5V12Z" fill="#6366f1"/>
+          <path d="M12 12L6 18C4 15.5 5 12.5 8.5 12H12Z" fill="#38bdf8"/>
+        </svg>`
+      },
+      {
+        name: "PyTorch",
+        svg: `<svg viewBox="0 0 24 24" class="w-8 h-8" fill="none">
+          <path d="M12 4.5L8.2 8.3C5.7 10.8 5.7 14.9 8.2 17.4C10.7 19.9 14.8 19.9 17.3 17.4C19.8 14.9 19.8 10.8 17.3 8.3" stroke="#EE4C2C" stroke-width="2.1" stroke-linecap="round"/>
+          <circle cx="15.2" cy="6.5" r="1.4" fill="#EE4C2C"/>
+        </svg>`
+      },
+      {
+        name: "MongoDB",
+        svg: `<svg viewBox="0 0 24 24" class="w-8 h-8" fill="none">
+          <path d="M12 3C12 3 7.5 7.5 7.5 13C7.5 16.8 10.2 19.5 12 20.5C13.8 19.5 16.5 16.8 16.5 13C16.5 7.5 12 3 12 3Z" fill="#10B981"/>
+          <path d="M12 5V21" stroke="#A7F3D0" stroke-width="1.2"/>
+        </svg>`
+      },
+      {
+        name: "MySQL",
+        svg: `<svg viewBox="0 0 24 24" class="w-8 h-8" fill="none">
+          <path d="M5 16.5C5.5 11.5 9 6.5 15.5 5.5C14.2 8.2 14.5 10.5 16.8 12.2C14.2 12.8 12.5 14.5 11.8 17.2" stroke="#00758F" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="14.2" cy="8.2" r="1" fill="#F29111"/>
+        </svg>`
+      },
+      {
+        name: "Pandas",
+        svg: `<svg viewBox="0 0 24 24" class="w-8 h-8" fill="none">
+          <rect x="6" y="4" width="2.6" height="16" rx="1" fill="#818CF8"/>
+          <rect x="10.7" y="4" width="2.6" height="5" rx="1" fill="#F43F5E"/>
+          <rect x="10.7" y="15" width="2.6" height="5" rx="1" fill="#FACC15"/>
+          <rect x="15.4" y="4" width="2.6" height="16" rx="1" fill="#818CF8"/>
+        </svg>`
+      },
+      {
+        name: "Terraform",
+        svg: `<svg viewBox="0 0 24 24" class="w-8 h-8" fill="none">
+          <path d="M9.2 4.5L14.2 7.4V13.2L9.2 10.3V4.5Z" fill="#844FBA"/>
+          <path d="M14.8 7.4L19.8 4.5V10.3L14.8 13.2V7.4Z" fill="#A78BFA"/>
+          <path d="M3.6 1.6L8.6 4.5V10.3L3.6 7.4V1.6Z" fill="#7C3AED"/>
+          <path d="M9.2 11.1L14.2 14V19.8L9.2 16.9V11.1Z" fill="#6D28D9"/>
+        </svg>`
+      },
+      {
+        name: "Kubernetes",
+        svg: `<svg viewBox="0 0 24 24" class="w-8 h-8" fill="none">
+          <polygon points="12,3 19.5,7.2 19.5,16.8 12,21 4.5,16.8 4.5,7.2" stroke="#326CE5" stroke-width="1.7" fill="#326CE5" fill-opacity="0.2"/>
+          <circle cx="12" cy="12" r="2.6" stroke="#60A5FA" stroke-width="1.5"/>
+          <path d="M12 6V9.4M12 14.6V18M6.8 9L9.7 10.7M14.3 13.3L17.2 15M17.2 9L14.3 10.7M9.7 13.3L6.8 15" stroke="#60A5FA" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>`
+      },
+      {
+        name: "ITIL 4",
+        svg: `<svg viewBox="0 0 24 24" class="w-8 h-8" fill="none">
+          <path d="M12 3L19 7V12.5C19 16.8 16 20.2 12 21.5C8 20.2 5 16.8 5 12.5V7L12 3Z" stroke="#C084FC" stroke-width="1.8" fill="#C084FC" fill-opacity="0.14"/>
+          <path d="M9.2 12.2L11.1 14.1L15 10.2" stroke="#E9D5FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>`
+      }
+    ];
+
+    function renderIconMarquee() {
+      const row1Container = document.getElementById('marquee-row-1');
+      const row2Container = document.getElementById('marquee-row-2');
+
+      const buildRowHTML = (items) => {
+        const doubled = [...items, ...items];
+        return doubled.map(item => `
+          <div class="tech-item flex flex-col items-center gap-2.5 shrink-0 select-none">
+            <div class="tech-tile">
+              ${item.svg}
+            </div>
+            <span class="tech-label font-mono text-[11px] text-slate-400 tracking-wide transition-colors">${item.name}</span>
+          </div>
+        `).join('');
+      };
+
+      row1Container.innerHTML = buildRowHTML(marqueeRow1Items);
+      row2Container.innerHTML = buildRowHTML(marqueeRow2Items);
+    }
+
+    renderIconMarquee();
+
+    // ======================== COMPLETE EN | FR BILINGUAL DICTIONARY ========================
+    const translations = {
+      en: {
+        nav_home: "Home",
+        nav_about: "About",
+        nav_exp: "Experience",
+        nav_projects: "Projects",
+        nav_skills: "Skills",
+        nav_direction: "Direction",
+        nav_contact: "Contact",
+        nav_cv: "Resume",
+
+        hero_status: "INCIDENT MANAGER @ SOCIÉTÉ GÉNÉRALE ASSURANCES",
+        hero_desc_1: "Incident Manager at <span class='text-white font-medium'>Société Générale Assurances</span> and IT student at <span class='text-white font-medium'>ISEP Paris</span>, building expertise across software, systems and production environments while developing a specialization in <span class='text-purple-300 font-medium'>Data Engineering</span> and <span class='text-cyan-300 font-medium'>Applied AI</span>.",
+        hero_desc_2: "Focused on building reliable data pipelines, intelligent automation and AI-powered systems for production environments.",
+        hero_cta_cv: "Download CV",
+        hero_cta_contact: "Get in touch",
+        hero_cta_projects: "View Projects",
+
+        btn_embed_photo: "Embed Photo",
+        badge_currently: "currently @",
+        badge_role_sub: "Incident Manager · ISEP Paris",
+        id_label_edu: "Education",
+        id_label_track: "Career Track",
+
+        marquee_heading: "TECHNOLOGIES & TOOLS",
+
+        sec1_num: "01 — About",
+        sec1_title: "From Production Reliability to Data & AI Systems",
+        about_p1: "I am an <span class='text-white font-semibold'>Incident Manager at Société Générale Assurances</span> and an engineering student pursuing the <span class='text-purple-300 font-medium'>Bachelor Informatique et Projets Numériques (IPN) at ISEP Paris</span>. Working directly with enterprise production environments has given me a strong appreciation for how critical IT systems behave under pressure—where service continuity, rapid diagnostics, and structured coordination matter every day.",
+        about_p2: "Alongside incident management and IT service operations (<span class='text-white font-medium'>ITIL® 4, production monitoring, troubleshooting</span>), I build software applications and AI-powered workflows (<span class='text-white font-medium'>Python, SQL, TypeScript, React Native, REST APIs</span>). I work extensively with <span class='text-amber-300 font-medium'>Claude Code</span> and <span class='text-cyan-300 font-medium'>Applied AI</span> tools—leveraging agentic coding, structured context engineering, and conversational AI agents to ship prototypes, automate processes, and accelerate full-stack delivery.",
+        about_p3: "Today, I am channeling this foundation—<span class='text-cyan-300 font-medium'>production reliability + AI-accelerated software engineering</span>—toward <span class='text-emerald-300 font-semibold'>Data Engineering, Cloud Infrastructure, and Applied AI</span>, while also bringing strong creative execution in <span class='text-white font-medium'>photography, videography, video production, and community management</span>.",
+
+        about_lang_heading: "Spoken Languages",
+        lang_fr_title: "French — C1",
+        lang_fr_sub: "Fluent / Professional",
+        lang_en_title: "English — C1",
+        lang_en_sub: "Advanced / Professional",
+        lang_ar_title: "Arabic",
+        lang_ar_sub: "Native",
+
+        about_edu_heading: "Education",
+        edu1_degree: "Bachelor Informatique et Projets Numériques (IPN)",
+        edu1_focus: "Software Development · Databases & SQL · Networks · Cloud & AI Projects",
+        edu2_label: "Scientific Secondary Diploma",
+        edu2_title: "Baccalauréat Scientifique",
+        edu2_degree: "Mathematics Specialization",
+
+        about_pillars_title: "Positioning Pillars",
+        pillar_1: "<strong class='text-white'>Current Role:</strong> Incident Manager at Société Générale Assurances coordinating production reliability & IT service workflows.",
+        pillar_2: "<strong class='text-white'>AI & Dev Velocity:</strong> Advanced workflow with Claude Code, AI agents, Python, SQL, TypeScript & React Native.",
+        pillar_3: "<strong class='text-white'>Specialization Track:</strong> Data Engineering pipelines, Cloud platforms & production AI systems.",
+
+        cert_heading: "Licenses, Certifications & Verified Training (6)",
+        cert_subheading: "Verified LinkedIn Credentials",
+        cert1_date: "June 2026",
+        cert1_name: "ITIL® en pratique : Appliquer les concepts d'ITIL® 4 Foundation",
+        cert1_tag1: "IT Service Management",
+        cert2_prep_badge: "Exam Prep Training",
+        cert2_date: "February 2026",
+        cert2_name: "Préparer la Certification Microsoft Azure Fundamentals (AZ-900)",
+        cert2_issuer: "LinkedIn — Preparation Training (Not Official Exam Certification)",
+        cert2_tag2: "Cloud Fundamentals",
+        cert3_date: "February 2026",
+        cert3_name: "Découvrir le vibe coding : Coder avec l'aide de l'IA",
+        cert3_tag1: "AI Software Dev",
+        cert4_date: "February 2026",
+        cert4_name: "L'essentiel de Git",
+        cert4_tag2: "Version Control",
+        cert5_date: "February 2026",
+        cert5_name: "Gérer les techniciens / techniciennes",
+        cert5_tag1: "Technical Team Coordination",
+        cert6_date: "February 2026",
+        cert6_name: "Les fondements de la gestion administrative",
+        cert6_tag1: "Administrative Processes",
+
+        sec2_num: "02 — Experience",
+        sec2_title: "Professional Missions & Experience",
+        exp1_role: "Incident Manager — IT Production & Service Management",
+        exp1_badge: "CURRENT MISSION",
+        exp1_org: "Société Générale Assurances",
+        exp1_meta: "Paris, France · 2026 – Present",
+        exp1_b1: "End-to-end incident lifecycle coordination across enterprise production systems, ensuring rapid qualification, prioritization, and structured follow-up.",
+        exp1_b2: "Production monitoring, anomaly triage, and operational reliability in close collaboration with infrastructure and engineering teams.",
+        exp1_b3: "Application of ITIL® 4 service management practices, SLA tracking, cross-functional communication, and clear technical documentation.",
+
+        exp2_role: "Mobile & AI Application Developer",
+        exp2_badge: "Independent Product Mission",
+        exp2_meta: "Paris, France · Aug 2025 – Present",
+        exp2_b1: "Designed and built an AI-powered execution and productivity platform integrating an automated conversational agent that transforms user goals into structured schedules, tasks, and Pomodoro focus sessions.",
+        exp2_b2: "Leveraged Claude Code and agentic coding workflows to accelerate full-stack development, REST API integration, and structured JSON data persistence.",
+
+        exp3_role: "Finalist (2nd Place) — Full-Stack & Mobile Developer",
+        exp3_meta: "Paris, France · Sept 2025 – Jan 2026",
+        exp3_b1: "Co-developed a full-stack React Native (Expo) and TypeScript field-technician mobile application consuming REST APIs with NativeWind (Tailwind CSS) UI, ranking Top 2 overall.",
+        exp3_b2: "Led application structuring, real-time data interaction logic, and final technical demonstration in front of an executive jury.",
+
+        exp4_role: "Web Developer & E-Commerce Founder",
+        exp4_org: "Independent E-Commerce Brand",
+        exp4_meta: "Paris, France · Aug 2023 – Present",
+        exp4_b1: "Full e-commerce platform development with automated marketing, order logistics, customer communication workflows, and generative AI content pipelines.",
+        exp4_b2: "Designed responsive web storefronts and custom automation scripts to streamline digital operations end-to-end.",
+
+        exp5_role: "Photographer, Videographer & Community Manager",
+        exp5_badge: "Freelance Mission",
+        exp5_meta: "Freelance Mission · Paris, France · Dec 2022 – Present",
+        exp5_b1: "High-end urban photography (Canon R8), commercial video production & Reels editing (Adobe Premiere Pro), and social media community management for Parisian brands, restaurants, and architectural landmarks.",
+        exp5_b2: "Integrated an automated Voiceflow AI booking chatbot that reduced appointment scheduling time by 90% with automated database logging for client follow-up and maintenance.",
+
+        sec3_num: "03 — Projects",
+        sec3_title: "Real Systems & Projects",
+        filter_all: "All",
+        filter_featured: "Featured",
+        filter_data_ai: "Data & AI",
+        filter_web_auto: "Web & Automation",
+        filter_mobile: "Mobile",
+        filter_sys_net: "Systems & Networks",
+        badge_featured: "Featured",
+        label_problem: "Problem Solved",
+        link_source: "Source & Architecture",
+        link_repo: "GitHub Repository",
+
+        p1_cat: "Data & AI · Mobile",
+        p1_title: "LockIn — AI Execution & Smart Scheduling System",
+        p1_desc: "Application and web platform designed as an execution system integrating an automated conversational AI agent, customizable Pomodoro sessions, and progress analytics.",
+        p1_problem: "Transforms unstructured user goals and constraints into structured JSON task lists and optimized daily focus schedules to eliminate distraction and cognitive overload.",
+
+        p2_cat: "Data & AI · Web & Automation",
+        p2_title: "Automated AI Booking & Lead Qualification Agent",
+        p2_desc: "Conversational AI assistant built with Voiceflow, JavaScript, and REST APIs to collect client requirements, schedule calls, and persist conversation logs into a database.",
+        p2_problem: "Reduced appointment scheduling time by 90% while automatically storing structured conversation histories in a database for follow-up and maintenance.",
+
+        p3_cat: "Mobile · Full-Stack",
+        p3_title: "Tenexa Workforce — Field Technician Mobile App (Top 2 Hackathon)",
+        p3_desc: "Full-stack mobile prototype built during the Tenexa × ISEP Paris Hackathon using React Native (Expo), TypeScript, and NativeWind, consuming REST APIs.",
+        p3_problem: "Provided field technicians with fast mobile access to operational intervention data and real-time status updates via a responsive interface.",
+        p3_award: "Ranked 2nd Place Overall",
+
+        p4_cat: "Web & Automation · Data & AI",
+        p4_title: "E-Commerce Platform & AI Workflow Automation",
+        p4_desc: "Full-stack e-commerce storefront engineered for an independent online brand with automated workflows across marketing, order logistics, customer support, and AI content pipelines.",
+        p4_problem: "Automated repetitive store management, visual asset creation, and customer communication tasks to enable lean solo operations.",
+
+        p5_cat: "Systems & Networks",
+        p5_title: "Multi-Site Enterprise Network & OSPF Topology",
+        p5_desc: "Enterprise network architecture designed and simulated in Cisco Packet Tracer featuring VLAN segmentation, OSPF dynamic routing, and structured IPv4 addressing plans.",
+        p5_problem: "Segmented inter-department traffic for security while ensuring resilient multi-router path redundancy and diagnostic visibility across OSI layers.",
+
+        p6_cat: "Systems & Data Track",
+        p6_status: "Active Progression",
+        p6_title: "Containerized Web & Database Environment",
+        p6_desc: "Engineering labs combining Docker containers, relational SQL databases, Linux CLI environments, and Python data processing scripts developed across ISEP coursework and personal Data & AI study.",
+        p6_problem: "Reproducible local development and database testing environments using Docker, SQL schema modeling, and automated Python scripts.",
+
+        sec4_num: "04 — Skills",
+        sec4_title: "Demonstrated Stack vs. Active Learning / Track",
+        sec4_desc: "Transparent separation between competencies demonstrated in production missions and shipped projects versus technologies currently in active progression on my Data & Cloud Engineering track.",
+        sfilter_all: "All Skills",
+        sfilter_demo: "● Demonstrated",
+        sfilter_learn: "◌ Active Learning / Track",
+        legend_demo: "= Applied in missions, production, shipped projects or engineering labs",
+        legend_learn: "= Technologies in active study toward Data Engineering, Cloud & Applied AI",
+
+        sgroup_1: "Data & AI",
+        sgroup_1_sub: "Claude Code · Applied AI · Data Track",
+        sk_claude: "● Claude Code (Agentic Coding)",
+        sk_ai_agents: "● Applied AI & LLM Workflows",
+        sk_ai_dev: "● AI-Assisted Development",
+        sk_chatbots: "● Voiceflow Chatbots",
+        sk_prompt: "● Prompt Engineering",
+        sk_etl: "◌ ETL / ELT Pipelines",
+        sk_rag: "◌ RAG Architectures",
+        sk_dwh: "◌ Data Warehousing",
+
+        sgroup_2: "Software Development",
+        sgroup_2_sub: "Web, Mobile & APIs",
+        sk_rest: "● REST API Integration",
+        sk_fs: "● Full-Stack Web Dev",
+        sk_evals: "◌ Automated Testing & AI Evals",
+
+        sgroup_3: "Cloud & DevOps",
+        sgroup_3_sub: "Containers & Cloud Track",
+        sk_azure: "● Microsoft Azure Fundamentals (AZ-900 Prep)",
+        sk_k8s: "◌ Kubernetes Basics",
+
+        sgroup_4: "Systems & Networks",
+        sgroup_4_sub: "Infrastructure & Enterprise IT",
+        sk_prodenv: "● Production Environments",
+        sk_vpc: "◌ Cloud Networking & VPCs",
+        sk_dist: "◌ Distributed Systems Reliability",
+
+        sgroup_5: "IT Service Management",
+        sgroup_5_sub: "Incident Manager @ Société Générale Assurances",
+        sk_inc: "● Incident Management",
+        sk_itil: "● ITIL® 4 Practices",
+        sk_mon: "● Production Monitoring",
+        sk_rca: "● Root Cause Analysis & Troubleshooting",
+        sk_doc: "● Technical Documentation & SLAs",
+        sk_obs: "◌ Observability Pipelines",
+        sk_triage_ai: "◌ Automated Incident Triage Agents (AIOps)",
+
+        sgroup_6: "Photography, Video & Digital Media",
+        sgroup_6_sub: "Visual Production & Community",
+        sk_photo: "● Photography (Canon R8)",
+        sk_video: "● Videography & Direction",
+        sk_vidprod: "● Video Production (Adobe Premiere Pro)",
+        sk_cm: "● Community Management (@parisien_parisienne_number1)",
+        sk_story: "● Short-Form Reels & Visual Storytelling",
+        sk_aivis: "● AI Visual Generation",
+
+        dir_eyebrow: "Where I'm heading",
+        dir_title: "Data Engineering & Applied AI",
+        dir_text: "I'm building toward Data Engineering and Applied AI roles where software engineering, cloud infrastructure and production reliability meet data-intensive systems.",
+        dir_pipeline_label: "Technical Progression Roadmap",
+        step1_title: "Incident Management",
+        step1_desc: "Service reliability at Société Générale Assurances, ITIL® 4 workflows, incident lifecycle & team coordination.",
+        step2_title: "Production & Systems",
+        step2_desc: "Linux, Docker, SQL, Python scripting, Claude Code & production diagnostics.",
+        step3_title: "Data Engineering",
+        step3_desc: "Data pipelines, ETL / ELT workflows, SQL data modeling & cloud data platforms.",
+        step4_title: "Applied AI",
+        step4_desc: "AI agents, intelligent automation & observable production AI systems.",
+        dir_targets_label: "Target Specialization Areas (Career Objectives)",
+        dir_targets_note: "Areas of active specialization & upcoming missions",
+        t_area_1: "Data Pipelines",
+        t_area_3: "Cloud Data Platforms",
+        t_area_4: "AI Agents",
+        t_area_5: "Automation",
+        t_area_6: "Production AI Systems",
+        t_area_7: "Monitoring & Observability",
+
+        sec5_num: "05 — Contact",
+        sec5_title: "Let's build something useful.",
+        contact_sub: "Open to technical opportunities and missions in Data Engineering, Applied AI, Cloud, Software and IT systems.",
+        contact_btn_email: "Email Me",
+        footer_tagline: "Incident Manager @ Société Générale Assurances · Data & AI Engineering Track",
+
+        cv_print_btn: "Print / Save PDF",
+        cv_headline: "Incident Manager @ Société Générale Assurances | Data & AI Engineering Track",
+        cv_summary: "Incident Manager at Société Générale Assurances and IT engineering student at ISEP Paris (Bachelor IPN), building expertise across software development, Claude Code / Applied AI workflows, systems and production environments while developing a specialization in Data Engineering and Cloud Infrastructure.",
+        cv_exp_heading: "Professional Experience & Missions",
+        cv_exp1_title: "Incident Manager — IT Production & Service Management",
+        cv_exp1_desc: "End-to-end incident lifecycle coordination across enterprise production systems, production monitoring, anomaly triage, cross-team technical coordination, ITIL® 4 practices, SLA tracking, and documentation.",
+        cv_exp2_title: "Mobile & AI Application Developer — LockIn (Independent Product Mission)",
+        cv_exp2_desc: "Designed and built an AI-powered execution platform integrating a conversational AI agent and Claude Code workflows that transform user goals into prioritized tasks and focus schedules.",
+        cv_exp3_title: "Finalist (2nd Place) — Full-Stack & Mobile Developer (Tenexa × ISEP Paris Hackathon)",
+        cv_exp3_desc: "Co-developed a full-stack React Native (Expo) and TypeScript field-technician mobile application consuming REST APIs with NativeWind UI (Ranked Top 2).",
+        cv_exp4_title: "Web Developer & E-Commerce Founder — Independent E-Commerce Brand",
+        cv_exp4_desc: "Full e-commerce platform development with automated marketing, logistics, customer workflows, and generative AI content pipelines.",
+        cv_exp5_title: "Photographer, Videographer & Community Manager — Parisien_Parisienne_Number1",
+        cv_exp5_desc: "Urban photography (Canon R8), commercial video production (Adobe Premiere Pro), community management, and integration of a Voiceflow AI booking chatbot (-90% scheduling time with database logging).",
+        cv_edu_heading: "Education",
+        cv_lang_heading: "Languages",
+        cv_langs: "French (C1) · English (C1) · Arabic (Native)",
+        cv_cert_heading: "Certifications & Verified Training"
+      },
+
+      fr: {
+        nav_home: "Accueil",
+        nav_about: "À propos",
+        nav_exp: "Expérience",
+        nav_projects: "Projets",
+        nav_skills: "Compétences",
+        nav_direction: "Trajectoire",
+        nav_contact: "Contact",
+        nav_cv: "CV",
+
+        hero_status: "INCIDENT MANAGER @ SOCIÉTÉ GÉNÉRALE ASSURANCES",
+        hero_desc_1: "Incident Manager chez <span class='text-white font-medium'>Société Générale Assurances</span> et étudiant en informatique à l'<span class='text-white font-medium'>ISEP Paris</span>, je développe mon expertise sur les environnements logiciels, systèmes et de production tout en construisant une spécialisation en <span class='text-purple-300 font-medium'>Data Engineering</span> et <span class='text-cyan-300 font-medium'>IA Appliquée</span>.",
+        hero_desc_2: "Orienté vers la conception de pipelines de données fiables, l'automatisation intelligente et les systèmes d'IA en environnement de production.",
+        hero_cta_cv: "Télécharger CV",
+        hero_cta_contact: "Me contacter",
+        hero_cta_projects: "Voir les Projets",
+
+        btn_embed_photo: "Intégrer Photo",
+        badge_currently: "en mission @",
+        badge_role_sub: "Incident Manager · ISEP Paris",
+        id_label_edu: "Formation",
+        id_label_track: "Trajectoire",
+
+        marquee_heading: "TECHNOLOGIES & OUTILS",
+
+        sec1_num: "01 — À propos",
+        sec1_title: "De la Fiabilité de Production vers les Systèmes Data & IA",
+        about_p1: "Je suis <span class='text-white font-semibold'>Incident Manager chez Société Générale Assurances</span> et étudiant en ingénierie numérique au sein du <span class='text-purple-300 font-medium'>Bachelor Informatique et Projets Numériques (IPN) à l'ISEP Paris</span>. Intervenir au cœur des environnements de production m'a permis de comprendre concrètement comment fonctionnent les systèmes IT critiques—là où la continuité de service, la rapidité de diagnostic et la coordination technique sont essentielles.",
+        about_p2: "En parallèle de la gestion d'incidents et des opérations IT (<span class='text-white font-medium'>ITIL® 4, supervision de production, diagnostic</span>), je conçois des applications logicielles et des workflows IA (<span class='text-white font-medium'>Python, SQL, TypeScript, React Native, API REST</span>). J'utilise intensivement <span class='text-amber-300 font-medium'>Claude Code</span> et les outils d'<span class='text-cyan-300 font-medium'>IA Appliquée</span> (développement agentique, ingénierie de contexte, agents conversationnels) pour livrer rapidement des systèmes fiables.",
+        about_p3: "Aujourd'hui, j'oriente ce socle—<span class='text-cyan-300 font-medium'>fiabilité de production + développement accéléré par l'IA</span>—vers le <span class='text-emerald-300 font-semibold'>Data Engineering, le Cloud et l'IA Appliquée</span>, tout en mobilisant mes compétences créatives en <span class='text-white font-medium'>photographie, vidéographie, production vidéo et community management</span>.",
+
+        about_lang_heading: "Langues Parlées",
+        lang_fr_title: "Français — C1",
+        lang_fr_sub: "Courant / Professionnel",
+        lang_en_title: "Anglais — C1",
+        lang_en_sub: "Avancé / Professionnel",
+        lang_ar_title: "Arabe",
+        lang_ar_sub: "Langue maternelle",
+
+        about_edu_heading: "Formation",
+        edu1_degree: "Bachelor Informatique et Projets Numériques (IPN)",
+        edu1_focus: "Développement Logiciel · Bases de données & SQL · Réseaux · Projets Cloud & IA",
+        edu2_label: "Diplôme de l'Enseignement Secondaire",
+        edu2_title: "Baccalauréat Scientifique",
+        edu2_degree: "Spécialité Mathématiques",
+
+        about_pillars_title: "Piliers du Profil",
+        pillar_1: "<strong class='text-white'>Mission actuelle :</strong> Incident Manager chez Société Générale Assurances assurant la fiabilité de production et la coordination IT.",
+        pillar_2: "<strong class='text-white'>Vélocité IA & Dev :</strong> Maîtrise de Claude Code, agents IA, Python, SQL, TypeScript & React Native.",
+        pillar_3: "<strong class='text-white'>Spécialisation :</strong> Pipelines Data Engineering, plateformes Cloud & systèmes d'IA en production.",
+
+        cert_heading: "Licences, Certifications & Formations Vérifiées (6)",
+        cert_subheading: "Certificats LinkedIn Vérifiés",
+        cert1_date: "Juin 2026",
+        cert1_name: "ITIL® en pratique : Appliquer les concepts d'ITIL® 4 Foundation",
+        cert1_tag1: "Gestion des services IT",
+        cert2_prep_badge: "Formation Préparatoire",
+        cert2_date: "Février 2026",
+        cert2_name: "Préparer la Certification Microsoft Azure Fundamentals (AZ-900)",
+        cert2_issuer: "LinkedIn — Cours de préparation (Non la certification officielle Microsoft)",
+        cert2_tag2: "Fondamentaux Cloud",
+        cert3_date: "Février 2026",
+        cert3_name: "Découvrir le vibe coding : Coder avec l'aide de l'IA",
+        cert3_tag1: "Dév. Logiciel IA",
+        cert4_date: "Février 2026",
+        cert4_name: "L'essentiel de Git",
+        cert4_tag2: "Contrôle de version",
+        cert5_date: "Février 2026",
+        cert5_name: "Gérer les techniciens / techniciennes",
+        cert5_tag1: "Coordination d'équipes techniques",
+        cert6_date: "Février 2026",
+        cert6_name: "Les fondements de la gestion administrative",
+        cert6_tag1: "Processus administratifs",
+
+        sec2_num: "02 — Expérience",
+        sec2_title: "Missions & Expériences Professionnelles",
+        exp1_role: "Incident Manager — Production IT & Gestion des Services",
+        exp1_badge: "MISSION ACTUELLE",
+        exp1_org: "Société Générale Assurances",
+        exp1_meta: "Paris, France · 2026 – Aujourd'hui",
+        exp1_b1: "Coordination de bout en bout du cycle de vie des incidents sur les systèmes de production : qualification rapide, priorisation et suivi structuré.",
+        exp1_b2: "Supervision de production, triage d'anomalies et fiabilité opérationnelle en lien étroit avec les équipes d'infrastructure et d'ingénierie.",
+        exp1_b3: "Application des pratiques ITIL® 4, suivi des SLA, communication transverse et rédaction de documentation technique.",
+
+        exp2_role: "Développeur d'Applications Mobiles & IA",
+        exp2_badge: "Mission Produit Indépendante",
+        exp2_meta: "Paris, France · Août 2025 – Aujourd'hui",
+        exp2_b1: "Conception et développement d'une plateforme d'exécution et de productivité intégrant un agent IA conversationnel qui transforme les objectifs en plannings, tâches et sessions Pomodoro.",
+        exp2_b2: "Utilisation de Claude Code et de workflows agentiques pour accélérer le développement full-stack, l'intégration d'API REST et la persistance JSON.",
+
+        exp3_role: "Finaliste (2e Place) — Développeur Full-Stack & Mobile",
+        exp3_meta: "Paris, France · Sept. 2025 – Janv. 2026",
+        exp3_b1: "Co-développement d'une application mobile React Native (Expo) et TypeScript pour techniciens terrain consommant des API REST avec interface NativeWind (Top 2 du Hackathon).",
+        exp3_b2: "Structuration de l'application, gestion des interactions de données en temps réel et démonstration finale devant le jury.",
+
+        exp4_role: "Développeur Web & Fondateur E-Commerce",
+        exp4_org: "Marque E-Commerce Indépendante",
+        exp4_meta: "Paris, France · Août 2023 – Aujourd'hui",
+        exp4_b1: "Développement complet d'une plateforme e-commerce avec automatisation du marketing, de la logistique, de la relation client et génération de contenu par IA.",
+        exp4_b2: "Conception d'interfaces web responsives et de flux d'automatisation numérique de bout en bout.",
+
+        exp5_role: "Photographe, Vidéaste & Community Manager",
+        exp5_badge: "Mission Freelance",
+        exp5_meta: "Mission Freelance · Paris, France · Déc. 2022 – Aujourd'hui",
+        exp5_b1: "Photographie urbaine haut de gamme (Canon R8), production vidéo commerciale & montage Reels (Adobe Premiere Pro) et community management pour marques et lieux d'exception à Paris.",
+        exp5_b2: "Intégration d'un chatbot IA automatisé (Voiceflow) réduisant de 90 % le temps de prise de rendez-vous avec enregistrement automatique des conversations en base de données.",
+
+        sec3_num: "03 — Projets",
+        sec3_title: "Systèmes & Projets Réalisés",
+        filter_all: "Tous",
+        filter_featured: "Phares",
+        filter_data_ai: "Data & IA",
+        filter_web_auto: "Web & Automatisation",
+        filter_mobile: "Mobile",
+        filter_sys_net: "Systèmes & Réseaux",
+        badge_featured: "Phare",
+        label_problem: "Problème Résolu",
+        link_source: "Code & Architecture",
+        link_repo: "Dépôt GitHub",
+
+        p1_cat: "Data & IA · Mobile",
+        p1_title: "LockIn — Système d'Exécution IA & Planification Intelligente",
+        p1_desc: "Application mobile et web pensée comme un système d'exécution intégrant un agent IA conversationnel, un mode Pomodoro personnalisable et un suivi analytique.",
+        p1_problem: "Transforme les objectifs et contraintes de l'utilisateur en listes de tâches structurées (JSON) et sessions de travail optimisées pour réduire la charge mentale.",
+
+        p2_cat: "Data & IA · Web & Automatisation",
+        p2_title: "Agent IA de Prise de RDV & Qualification Client",
+        p2_desc: "Assistant conversationnel construit avec Voiceflow, JavaScript et API REST pour qualifier les besoins clients, planifier des appels et archiver les échanges en base de données.",
+        p2_problem: "Réduction de 90 % du temps de prise de rendez-vous avec sauvegarde automatique des conversations en base de données pour le suivi.",
+
+        p3_cat: "Mobile · Full-Stack",
+        p3_title: "Tenexa Workforce — Application Mobile Techniciens (Top 2 Hackathon)",
+        p3_desc: "Prototype mobile full-stack développé lors du Hackathon Tenexa × ISEP Paris en React Native (Expo), TypeScript et NativeWind, connecté à des API REST.",
+        p3_problem: "Permet aux techniciens terrain d'accéder rapidement aux données d'intervention et aux mises à jour en temps réel via une interface fluide.",
+        p3_award: "Classé 2e du Hackathon",
+
+        p4_cat: "Web & Automatisation · Data & IA",
+        p4_title: "Plateforme E-Commerce & Automatisation de Workflows IA",
+        p4_desc: "Plateforme e-commerce full-stack conçue pour une marque indépendante avec automatisation du marketing, de la logistique, du support client et pipelines de contenu IA.",
+        p4_problem: "Automatise la gestion opérationnelle de la boutique, la production visuelle et le suivi client.",
+
+        p5_cat: "Systèmes & Réseaux",
+        p5_title: "Topologie Réseau Multi-Sites & Routage OSPF",
+        p5_desc: "Architecture réseau d'entreprise conçue et simulée sous Cisco Packet Tracer intégrant segmentation VLAN, routage dynamique OSPF et plan d'adressage IPv4.",
+        p5_problem: "Isole les flux inter-services pour la sécurité tout en assurant la redondance des routes et le diagnostic sur les couches OSI.",
+
+        p6_cat: "Systèmes & Trajectoire Data",
+        p6_status: "Progression Active",
+        p6_title: "Environnement Web & Base de Données Conteneurisé",
+        p6_desc: "Travaux pratiques combinant conteneurs Docker, bases de données relationnelles SQL, environnement Linux CLI et scripts Python réalisés à l'ISEP et en auto-formation Data & IA.",
+        p6_problem: "Mise en place d'environnements reproductibles avec Docker, modélisation SQL et scripts Python automatisés.",
+
+        sec4_num: "04 — Compétences",
+        sec4_title: "Stack Démontrée vs. En Apprentissage Actif / Track",
+        sec4_desc: "Séparation transparente entre les compétences démontrées en mission et projets livrés et les technologies en cours d'apprentissage actif sur ma trajectoire Data & Cloud.",
+        sfilter_all: "Toutes",
+        sfilter_demo: "● Démontrées",
+        sfilter_learn: "◌ En Progression / Track",
+        legend_demo: "= Appliquée en mission, production, projet livré ou laboratoire",
+        legend_learn: "= Technologie en cours d'apprentissage vers le Data Engineering, Cloud & IA",
+
+        sgroup_1: "Data & IA",
+        sgroup_1_sub: "Claude Code · IA Appliquée · Track Data",
+        sk_claude: "● Claude Code (Dév. Agentique)",
+        sk_ai_agents: "● IA Appliquée & Workflows LLM",
+        sk_ai_dev: "● Développement assisté par IA",
+        sk_chatbots: "● Chatbots Voiceflow",
+        sk_prompt: "● Prompt Engineering",
+        sk_etl: "◌ Pipelines ETL / ELT",
+        sk_rag: "◌ Architectures RAG",
+        sk_dwh: "◌ Data Warehousing",
+
+        sgroup_2: "Développement Logiciel",
+        sgroup_2_sub: "Web, Mobile & API",
+        sk_rest: "● Intégration d'API REST",
+        sk_fs: "● Dév. Web Full-Stack",
+        sk_evals: "◌ Tests Automatisés & Évaluations IA",
+
+        sgroup_3: "Cloud & DevOps",
+        sgroup_3_sub: "Conteneurs & Trajectoire Cloud",
+        sk_azure: "● Microsoft Azure Fundamentals (Prép. AZ-900)",
+        sk_k8s: "◌ Bases de Kubernetes",
+
+        sgroup_4: "Systèmes & Réseaux",
+        sgroup_4_sub: "Infrastructure & IT d'Entreprise",
+        sk_prodenv: "● Environnements de Production",
+        sk_vpc: "◌ Réseaux Cloud & VPC",
+        sk_dist: "◌ Fiabilité des Systèmes Distribués",
+
+        sgroup_5: "Gestion des Services IT",
+        sgroup_5_sub: "Incident Manager @ Société Générale Assurances",
+        sk_inc: "● Gestion d'Incidents",
+        sk_itil: "● Pratiques ITIL® 4",
+        sk_mon: "● Supervision de Production",
+        sk_rca: "● Analyse de Cause Racine & Diagnostic",
+        sk_doc: "● Documentation Technique & SLA",
+        sk_obs: "◌ Pipelines d'Observabilité",
+        sk_triage_ai: "◌ Agents IA de Triage d'Incidents (AIOps)",
+
+        sgroup_6: "Photographie, Vidéo & Média Digital",
+        sgroup_6_sub: "Production Visuelle & Communauté",
+        sk_photo: "● Photographie (Canon R8)",
+        sk_video: "● Vidéographie & Réalisation",
+        sk_vidprod: "● Production Vidéo (Adobe Premiere Pro)",
+        sk_cm: "● Community Management (@parisien_parisienne_number1)",
+        sk_story: "● Formats Courts (Reels) & Storytelling Visuel",
+        sk_aivis: "● Génération Visuelle par IA",
+
+        dir_eyebrow: "Où je vais",
+        dir_title: "Data Engineering & IA Appliquée",
+        dir_text: "Je construis mon parcours vers des rôles en Data Engineering et IA Appliquée, à la croisée du génie logiciel, de l'infrastructure cloud, de la fiabilité de production et des systèmes orientés données.",
+        dir_pipeline_label: "Feuille de Route & Progression Technique",
+        step1_title: "Incident Management",
+        step1_desc: "Fiabilité de service chez Société Générale Assurances, workflows ITIL® 4, cycle de vie des incidents & coordination.",
+        step2_title: "Production & Systèmes",
+        step2_desc: "Linux, Docker, SQL, scripts Python, Claude Code & diagnostic de production.",
+        step3_title: "Data Engineering",
+        step3_desc: "Pipelines de données, flux ETL / ELT, modélisation SQL & plateformes data cloud.",
+        step4_title: "IA Appliquée",
+        step4_desc: "Agents IA, automatisation intelligente & systèmes d'IA fiables en production.",
+        dir_targets_label: "Domaines de Spécialisation Visés (Objectifs de Carrière)",
+        dir_targets_note: "Axes d'approfondissement technique et prochaines missions",
+        t_area_1: "Pipelines de Données",
+        t_area_3: "Plateformes Data Cloud",
+        t_area_4: "Agents IA",
+        t_area_5: "Automatisation",
+        t_area_6: "Systèmes d'IA en Production",
+        t_area_7: "Monitoring & Observabilité",
+
+        sec5_num: "05 — Contact",
+        sec5_title: "Construisons quelque chose d'utile.",
+        contact_sub: "Ouvert aux opportunités techniques et missions en Data Engineering, IA Appliquée, Cloud, Développement Logiciel et Systèmes IT.",
+        contact_btn_email: "M'envoyer un Email",
+        footer_tagline: "Incident Manager @ Société Générale Assurances · Trajectoire Data & AI Engineering",
+
+        cv_print_btn: "Imprimer / Enregistrer PDF",
+        cv_headline: "Incident Manager @ Société Générale Assurances | Trajectoire Data & AI Engineering",
+        cv_summary: "Incident Manager chez Société Générale Assurances et étudiant en informatique à l'ISEP Paris (Bachelor IPN), développant une expertise sur les environnements logiciels, Claude Code / IA Appliquée, systèmes et de production tout en construisant une spécialisation en Data Engineering et Cloud.",
+        cv_exp_heading: "Expériences & Missions Professionnelles",
+        cv_exp1_title: "Incident Manager — Production IT & Gestion des Services",
+        cv_exp1_desc: "Coordination du cycle de vie des incidents sur les systèmes de production, supervision, diagnostic technique, coordination transverse, pratiques ITIL® 4, suivi SLA et documentation.",
+        cv_exp2_title: "Développeur d'Applications Mobiles & IA — LockIn (Mission Produit Indépendante)",
+        cv_exp2_desc: "Conception et développement d'une plateforme d'exécution intégrant un agent conversationnel IA et des workflows Claude Code générant automatiquement des tâches et sessions de travail.",
+        cv_exp3_title: "Finaliste (2e Place) — Développeur Full-Stack & Mobile (Hackathon Tenexa × ISEP Paris)",
+        cv_exp3_desc: "Co-développement d'une application mobile React Native (Expo) et TypeScript pour techniciens terrain consommant des API REST avec interface NativeWind (Top 2).",
+        cv_exp4_title: "Développeur Web & Fondateur E-Commerce — Marque E-Commerce Indépendante",
+        cv_exp4_desc: "Développement complet d'une plateforme e-commerce avec automatisation du marketing, de la logistique, du support client et génération de contenu par IA.",
+        cv_exp5_title: "Photographe, Vidéaste & Community Manager — Parisien_Parisienne_Number1",
+        cv_exp5_desc: "Photographie urbaine (Canon R8), production vidéo (Adobe Premiere Pro), community management et intégration d'un chatbot IA Voiceflow (-90 % sur le temps de prise de RDV avec stockage en base de données).",
+        cv_edu_heading: "Formation",
+        cv_lang_heading: "Langues",
+        cv_langs: "Français (C1) · Anglais (C1) · Arabe (Langue maternelle)",
+        cv_cert_heading: "Certifications & Formations Vérifiées"
+      }
+    };
+
+    // Switch Language (EN | FR)
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+
+      const btnEn = document.getElementById('lang-en');
+      const btnFr = document.getElementById('lang-fr');
+
+      if (lang === 'en') {
+        btnEn.className = "px-2.5 py-1 rounded-lg text-xs font-mono font-semibold transition-all bg-purple-500/25 text-purple-200 border border-purple-400/30";
+        btnFr.className = "px-2.5 py-1 rounded-lg text-xs font-mono font-semibold transition-all text-slate-400 hover:text-slate-200";
+      } else {
+        btnFr.className = "px-2.5 py-1 rounded-lg text-xs font-mono font-semibold transition-all bg-purple-500/25 text-purple-200 border border-purple-400/30";
+        btnEn.className = "px-2.5 py-1 rounded-lg text-xs font-mono font-semibold transition-all text-slate-400 hover:text-slate-200";
+      }
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+    }
+
+    // Filter Projects by Category
+    function filterProjects(category) {
+      const cards = document.querySelectorAll('.project-card');
+      const buttons = document.querySelectorAll('.proj-filter-btn');
+
+      buttons.forEach(btn => {
+        if (btn.getAttribute('data-filter') === category) {
+          btn.className = "proj-filter-btn px-3 py-1.5 rounded-lg text-xs font-mono font-semibold transition-all bg-purple-500 text-white";
+        } else {
+          btn.className = "proj-filter-btn px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-all text-slate-400 hover:text-white";
+        }
+      });
+
+      cards.forEach(card => {
+        const categories = card.getAttribute('data-categories').split(' ');
+        if (categories.includes(category)) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    // Filter Skills by Maturity (All vs. Demonstrated vs. Active Learning)
+    function filterSkills(level) {
+      const pills = document.querySelectorAll('.skill-pill');
+      const buttons = document.querySelectorAll('.skill-filter-btn');
+
+      buttons.forEach(btn => {
+        if (btn.getAttribute('data-skill-filter') === level) {
+          btn.classList.add('bg-purple-500', 'text-white', 'font-semibold');
+          btn.classList.remove('text-slate-300');
+        } else {
+          btn.classList.remove('bg-purple-500', 'text-white', 'font-semibold');
+          btn.classList.add('text-slate-300');
+        }
+      });
+
+      pills.forEach(pill => {
+        const maturity = pill.getAttribute('data-maturity');
+        if (level === 'all' || maturity === level) {
+          pill.style.opacity = '1';
+          pill.style.transform = 'scale(1)';
+        } else {
+          pill.style.opacity = '0.2';
+          pill.style.transform = 'scale(0.95)';
+        }
+      });
+    }
+
+    // Active Navigation Pill Highlight on Scroll
+    const navSections = ['home', 'about', 'experience', 'projects', 'skills', 'direction', 'contact'];
+    window.addEventListener('scroll', () => {
+      let currentSection = 'home';
+      const scrollY = window.scrollY + 180;
+
+      navSections.forEach(id => {
+        const section = document.getElementById(id);
+        if (section && scrollY >= section.offsetTop) {
+          currentSection = id;
+        }
+      });
+
+      document.querySelectorAll('.nav-pill').forEach(link => {
+        if (link.getAttribute('data-nav') === currentSection) {
+          link.className = "nav-pill px-4 py-1.5 rounded-full text-xs font-medium transition-all bg-white/[0.09] text-white border border-white/10 shadow-sm";
+        } else {
+          link.className = "nav-pill px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-400 hover:text-white transition-all";
+        }
+      });
+    });
+
+    // Mobile Menu Drawer Toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+
+    // Resume / CV Modal Controls
+    function openResumeModal() {
+      const modal = document.getElementById('resume-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeResumeModal() {
+      const modal = document.getElementById('resume-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // Copy Email Helper
+    function copyEmailAddress() {
+      const email = "merahouten@gmail.com";
+      const label = document.getElementById('copy-email-text');
+      const tempInput = document.createElement("textarea");
+      tempInput.value = email;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand("copy");
+      document.body.removeChild(tempInput);
+
+      label.textContent = currentLang === 'en' ? "Copied: merahouten@gmail.com" : "Copié : merahouten@gmail.com";
+      setTimeout(() => {
+        label.textContent = "Copy email: merahouten@gmail.com";
+      }, 2200);
+    }
+
+    // One-Click Copy Raw HTML for GitHub Deployment
+    function copyRawHTML() {
+      const fullHTML = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+      const btnText = document.getElementById('copy-html-btn-text');
+      const tempInput = document.createElement("textarea");
+      tempInput.value = fullHTML;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand("copy");
+      document.body.removeChild(tempInput);
+
+      btnText.textContent = currentLang === 'en' ? "HTML Copied!" : "HTML Copié !";
+      setTimeout(() => {
+        btnText.textContent = "Copy Raw HTML";
+      }, 2400);
+    }
+
+    // Scroll Reveal IntersectionObserver
+    const revealItems = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.08 });
+
+    revealItems.forEach(item => revealObserver.observe(item));
+
+    // Close modal on Escape key
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeResumeModal();
+      }
+    });
+  </script>
+</body>
+</html>
